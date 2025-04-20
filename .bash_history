@@ -1842,3 +1842,80 @@ exit
 tmux
 exit
 smassh
+tmux attach
+tmux
+git clone https://github.com/fraziema/dotfiles-desktop
+ls
+ls -a
+mv dotfiles-desktop/ .dotfiles
+stow .dotfiles/
+sudo aptitude install stow
+stow .dotfiles/
+ls -a .dotfiles/
+ls -al .dotfiles/
+chown fraziema .dotfiles/
+chown fraziema .dotfiles/*
+stow .dotfiles/
+cd .dotfiles/
+stow .
+stow .
+cd ../Documents/OpenSCAD/
+ls
+lss
+alias lss = ls|less
+alias lss='ls|less'
+lss
+sudo apt install make gcc ripgrep unzip git xclip curl
+ls
+rm *
+rm * -r
+rm * -rf
+exit
+cd .config/
+ls
+ls nvim/
+less nvim/init.vim 
+cd nvim
+git clone https://github.com/fraziema/kickstart.nvim
+nvim
+ls
+nvim init.vim 
+nvim 
+tmux
+git clone https://github.com/fraziema/kickstart.nvim
+nvim
+sudo aptitude purge neovim
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+sudo rm -rf /opt/nvim-linux-x86_64
+sudo mkdir -p /opt/nvim-linux-x86_64
+sudo chmod a+rX /opt/nvim-linux-x86_64
+sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
+# make it available in /usr/local/bin, distro installs to /usr/bin
+sudo ln -sf /opt/nvim-linux-x86_64/bin/nvim /usr/local/bin/
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+sudo rm -rf /opt/nvim-linux-x86_64
+sudo mkdir -p /opt/nvim-linux-x86_64
+sudo chmod a+rX /opt/nvim-linux-x86_64
+sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
+sudo ln -sf /opt/nvim-linux-x86_64/bin/nvim /usr/local/bin/
+nvim
+git clone https://github.com/fraziema/kickstart.nvim
+ls
+mv nvim-linux-x86_64.tar.gz ~/Downloads/
+ls
+rm -rf kickstart.nvim/
+git clone https://github.com/fraziema/kickstart.nvim
+nvim
+ls
+ls -a
+cd kickstart.nvim/
+ls
+ls 0a
+ls -a
+nvim .gitignore 
+git add .
+git commit -m "lazylock add"
+git push
+nvim
+nvim .config/nvim/kickstart.nvim/init.lua 
+vim Downloads/draft-comprehension13.txt
