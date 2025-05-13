@@ -15,4 +15,5 @@ font:
 
 
 import:
-    - ~/.config/alacritty/themes/gruvbox_dark.yaml
+    - ~/.config/alacritty/themes/breeze.yaml
+    #- ~/.config/alacritty/themes/gruvbox_dark.yaml
