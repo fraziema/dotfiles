@@ -1,6 +1,0 @@
-
-order += "time"
-
-time {
-	format = "%H:%M %d %b "
-}

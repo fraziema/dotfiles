@@ -1,6 +1,0 @@
-#!/bin/sh
-
-cd ~/.config/i3status
-cat config.default config.$(hostname) > config;
-cd -
-	
