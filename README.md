@@ -6,4 +6,4 @@ Currently contains the following
   - bin folder 
   - bash includes
   - i3 config
-    --i3status scripts and configs for different systems
+  --i3status scripts and configs for different systems
