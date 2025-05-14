@@ -1,0 +1,23 @@
+general {
+	colors = true
+	interval = 30
+	color_good = "#989898"
+	color_degraded = "#8c7f22"
+	color_bad = "#be2422"
+}
+
+
+order += "time"
+
+<<<<<<< HEAD
+=======
+battery all {
+	last_full_capacity = true
+	low_threshold = 20
+	threshold_type = "percentage"
+	format = "Battery: %status %percentage %remaining "
+}
+>>>>>>> d2b6fbb48cf422bebba55e77907a73bfd0ace1be
+time {
+	format = " %H:%M %d %b "
+}
