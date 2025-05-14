@@ -38,12 +38,12 @@ XTerm*visualBell: false
 
 URxvt*font: xft:Bitstream Vera Sans Mono:autohint=true:pixelsize=24 
 !URxvt*foreground: orange
-URxvt*background: black
+!URxvt*background: black
 
 URxvt*visualBell: false
 URxvt*scrollBar: false
-URxvt*transparent:        false
-URxvt*shading: 35
+URxvt*transparent: true
+URxvt*shading: 25
 !URxvt*hold:		true
 
 URxvt*inheritPixmap: true
