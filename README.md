@@ -5,3 +5,5 @@ Currently contains the following
   - openbox (for keybindings etc)
   - bin folder 
   - bash includes
+  - i3 config
+  --i3status scripts and configs for different systems
