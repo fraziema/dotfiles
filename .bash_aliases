@@ -4,6 +4,7 @@ alias :q='exit'
 alias ytmp3='yt-dlp -f 'ba' -x --audio-format mp3 '
 alias filedate='date +%Y%m%d_%H%M%S'
 alias jiggle='while true; do xdotool mousemove 250 0 mousemove restore; echo "-";sleep 500; done'
+alias python='python3'
 
 # feh aliases
 alias slideshow='feh -D2 -FZz ' 
