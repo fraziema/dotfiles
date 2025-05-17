@@ -1,7 +1,8 @@
-home/.bash_history
-home/.gitconfig
+*/.bash_history
+*/.gitconfig
 vim/.vim/backup/*
 vim/.vim/swap/*
 Prusa*
 *SCAD
 *~
+.config/i3status/config
