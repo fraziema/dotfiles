@@ -1,3 +1,7 @@
+Xcursor.theme: default
+Xcursor.size: 48
+
+
 ! gruvbox colors ==========================
 ! hard contrast: *background: #1d2021
 *background: #282828
