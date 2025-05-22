@@ -129,3 +129,4 @@ fi
 
 # Created by `pipx` on 2025-03-01 18:59:38
 export PATH="$PATH:/home/fraziema/.local/bin"
+. "$HOME/.cargo/env"
