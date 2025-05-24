@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+echo $PWD
+
 #sleep $(( 30 + ($RANDOM % 30) ))
 site=$(shuf -n 1 ~/bin/phosts)
 echo $site

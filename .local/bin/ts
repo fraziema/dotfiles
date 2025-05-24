@@ -1,0 +1,73 @@
+#!/usr/bin/env bash
+
+TS_SEARCH_PATHS=(~/ ~/dotfiles ~/Documents/ ~/.config ~/.local)
+
+switch_to() {
+    if [[ -z $TMUX ]]; then
+        tmux attach-session -t "$1"
+    else
+        tmux switch-client -t "$1"
+    fi
+}
+
+has_session() {
+    tmux list-sessions | grep -q "^$1:"
+}
+
+# utility function to find directories
+find_dirs() {
+    # list TMUX sessions
+    if [[ -n "${TMUX}" ]]; then
+        current_session=$(tmux display-message -p '#S')
+        tmux list-sessions -F "[TMUX] #{session_name}" 2>/dev/null | grep -vFx "[TMUX] $current_session"
+    else
+        tmux list-sessions -F "[TMUX] #{session_name}" 2>/dev/null
+    fi
+
+    for entry in "${TS_SEARCH_PATHS[@]}"; do
+
+        [[ -d "$entry" ]] && find "$entry" -mindepth 1 -maxdepth 2 -path '*/.git' -prune -o -type d -print
+    done
+}
+
+sanity_check() {
+    if ! command -v tmux &>/dev/null; then
+        echo "tmux is not installed. Please install it first."
+        exit 1
+    fi
+
+    if ! command -v fzf &>/dev/null; then
+        echo "fzf is not installed. Please install it first."
+        exit 1
+    fi
+}
+
+
+sanity_check
+
+if [[ $# -eq 1 ]]; then
+    selected="$1"
+else
+    selected=$(find_dirs | fzf)
+fi
+
+if [[ -z $selected ]]; then
+    exit 0
+fi
+
+if [[ "$selected" =~ ^\[TMUX\]\ (.+)$ ]]; then
+    selected="${BASH_REMATCH[1]}"
+fi
+
+selected_name=$(basename "$selected" | tr . _)
+tmux_running=$(pgrep tmux)
+
+if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
+    tmux new-session -ds "$selected_name" -c "$selected"
+fi
+
+if ! has_session "$selected_name"; then
+    tmux new-session -ds "$selected_name" -c "$selected"
+fi
+
+switch_to "$selected_name"
