@@ -1,7 +1,7 @@
 */.bash_history
 */.gitconfig
-vim/.vim/backup/*
-vim/.vim/swap/*
+.vim/backup/*
+.vim/swap/*
 Prusa*
 *SCAD
 *~
