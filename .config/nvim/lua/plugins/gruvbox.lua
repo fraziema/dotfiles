@@ -1,6 +1,10 @@
 return {
   { "ellisonleao/gruvbox.nvim",
   priority = 1000 ,
-  config = true
+  config = true,
+  opts = {
+	      transparent = true,
+	  }
+
   }
 }
