@@ -2,7 +2,7 @@
 set $mod Mod4
 
 # is used in the bar {} block below.
-font pango:monospace bold italic 20
+font pango:monospace bold italic 24
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -29,7 +29,7 @@ set_from_resource $bg i3wm.color8
 # class                 border  backgr. text indicator child_border
 client.focused          $bg     $bg     $fg  $bg       $fg
 client.focused_inactive $bg     $bg     $fg  $bg       $bg
-client.unfocused        $bg     $bg     $fg  $bg       i3wm.color14
+client.unfocused        $bg     $bg     $fg  $bg       $bg
 client.urgent           #ff0000 $bg     $fg  $bg       $bg
 client.placeholder      $bg     $bg     $fg  $bg       $bg
 
@@ -194,6 +194,13 @@ bar {
 		background #000000
 		statusline $fg
 		separator  $fg
+
+#		     <colorclass>	<edge>	<bg>	<text>
+		focused_workspace	#4c7899	#285577	#ffffff
+        active_workspace	$fg		$bg		#ffffff
+        inactive_workspace	#333333 #222222 #444444
+        urgent_workspace	#2f343a #009000 #ffffff
+        binding_mode		#2f343a #900000 #ffffff
 	}
 }
 
