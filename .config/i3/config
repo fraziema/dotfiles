@@ -13,6 +13,7 @@ exec --no-startup-id xrandr --output HDMI-1 --mode 1680x1050 --rate 59.88
 exec --no-startup-id xcape -e 'Control_L=Escape' -t 225 
 exec --no-startup-id nm-applet
 exec --no-startup-id ~/.fehbg
+exec --no-startup-id wal -R
 
 exec_always --no-startup-id ~/.config/i3status/mkconf
 
@@ -27,10 +28,10 @@ set_from_resource $fg i3wm.color11
 set_from_resource $bg i3wm.color8
 
 # class                 border  backgr. text indicator child_border
-client.focused          $bg     $bg     $fg  $bg       $bg
+client.focused          $bg     $bg     $fg  $bg       $fg
 client.focused_inactive $bg     $bg     $fg  $bg       $bg
-client.unfocused        $bg     $bg     $fg  $bg       $bg
-client.urgent           $bg     $bg     $fg  $bg       $bg
+client.unfocused        $bg     $bg     $fg  $bg       i3wm.color14
+client.urgent           #ff0000 $bg     $fg  $bg       $bg
 client.placeholder      $bg     $bg     $fg  $bg       $bg
 
 client.background       $bg
@@ -101,10 +102,14 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+backslash floating toggle
+# bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 bindsym $mod+a focus parent
+
+bindsym $mod+minus scratchpad show
+bindsym $mod+equal move scratchpad 
 
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
@@ -182,10 +187,15 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+	id bar-1
     status_command i3status
 	i3bar_command i3bar --transparency
 	position bottom
+	colors {
+		background #000000
+		statusline $fg
+		separator  $fg
+	}
 }
 
-bindsym $mod+F12 bar position toggle
-bindsym $mod+F11 bar mode toggle
+bindsym $mod+F12 bar mode toggle

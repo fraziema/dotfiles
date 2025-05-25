@@ -34,7 +34,6 @@ require("lazy").setup("plugins")
 require("keymaps")
 require("remaps")
 
-
 require("gruvbox").setup({
   italic = {
     strings = false,
@@ -43,11 +42,16 @@ require("gruvbox").setup({
     operators = false,
     folds = false,
   },
+  transparent_mode = true,
 })
-
 --[[
+--[[ --]]
 require("catppuccin").setup({
-	no_italic = true
+	no_italic = true,
+	transparent_background = true,
+	styles = {
+		comments = { NONE },
+	}
 })
 --]]
 vim.o.background = "dark"
