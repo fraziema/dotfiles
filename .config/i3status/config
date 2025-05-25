@@ -10,5 +10,5 @@ general {
 order += "time"
 
 time {
-	format = "%H:%M %d %b "
+	format = "%H:%M %a %d %b "
 }
