@@ -33,6 +33,8 @@ Xcursor.size: 48
 *color15: #ebdbb2
 ! gruvbox colors ==========================
 
+*.transparency: true
+
 !XTerm*Foreground: orange
 XTerm*Background: black
 XTerm*renderFont: true
