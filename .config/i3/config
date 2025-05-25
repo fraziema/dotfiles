@@ -12,16 +12,7 @@ exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xrandr --output HDMI-1 --mode 1680x1050 --rate 59.88
 exec --no-startup-id xcape -e 'Control_L=Escape' -t 225 
 exec --no-startup-id nm-applet
-exec --no-startup-id ~/.fehbg
-<<<<<<< HEAD
 exec --no-startup-id wal -R
-=======
-<<<<<<< HEAD
-exec --no-startup-id wal -R
-=======
-exec --no-startup-id ~/.local/bin/paint
->>>>>>> 6cc8f25332fddcfac08d989f509640501e2fef39
->>>>>>> c1762c001d749442de6b13868b5e0a9d9d6c49cd
 
 exec_always --no-startup-id ~/.config/i3status/mkconf
 

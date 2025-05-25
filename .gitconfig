@@ -3,3 +3,5 @@
 	email = 107295620+fraziema@users.noreply.github.com
 [init]
 	defaultBranch = main
+[core]
+	editor = nvim -f
