@@ -34,4 +34,22 @@ require("lazy").setup("plugins")
 require("keymaps")
 require("remaps")
 
+
+require("gruvbox").setup({
+  italic = {
+    strings = false,
+    emphasis = false,
+    comments = false,
+    operators = false,
+    folds = false,
+  },
+})
+
+--[[
+require("catppuccin").setup({
+	no_italic = true
+})
+--]]
+vim.o.background = "dark"
+--vim.cmd([[colorscheme catppuccin]])
 vim.cmd([[colorscheme gruvbox]])
