@@ -1,3 +1,15 @@
+#!/usr/bin/env bash
+
+redot() {
+	echo "Moving to dotfiles."
+	pushd ~/dotfiles;
+	echo "Re-stowing dotfiles..."
+	stow -R . ;
+	echo "Returning."
+	popd
+}
+
+
 clock() {
 	clear; 
 	while true;do 

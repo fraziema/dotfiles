@@ -1,0 +1,87 @@
+#!/usr/bin/env bash
+
+# find the removable drives that you want to try to mount / unmount 
+# and if possible doit. There are lots of idiot checks but bigger idiots.
+# It should exit after any action or tripping any idiot check
+
+# uncomment only one, script checks that it exists
+CHOOSER="fzf --height=~30% --border double --tac"
+#CHOOSER="rofi -dmenu"
+#CHOOSER="dmenu -l 5 -fn 'monospace-24' "
+
+# replace each instance of string with one for the chosen menu in test comp.
+if [[ ! "$(which fzf)" =~ "fzf" ]]; then
+	echo "no program to select options from. Try fzf or rofi or dmenu"
+	exit 1
+fi
+
+# get from mountable partitions choice to mount / unmount
+SEL=($(lsblk -o NAME,MOUNTPOINTS,TYPE -l -s -n 2>/dev/null |
+	grep -i part | #only partitions
+	sed 's/part//g' | 
+	sed '/sda/d' | #avoid main disk /
+	$CHOOSER
+))
+
+DEVICE="/dev/${SEL[0]}"
+echo "selected device $DEVICE"
+
+MOUNTED=${SEL[1]}
+
+ERR=${SEL[2]}
+
+# did anything get chosen from fzf?
+if [[ -z $SEL ]]; then exit 1; fi
+
+# did too much get chosen from fzf?
+if [[ -n $ERR ]] || [[ $MOUNTED =~ "part" ]]; then
+	echo "ERR has value $ERR when it should not. MOUNTED has value $MOUNTED 
+
+	Something is wrong in the fzf selector. Exiting..."
+	exit 1
+fi
+
+# Idiot Checks
+if [[ $MOUNTED =~ "SWAP" ]]; then 
+	# have nothing to do with unmounting swap. These should be filtered
+	# by the /sda/ regexp above
+	echo "Selected the swap space, exiting without action."
+	exit 1
+fi
+
+if [[ $MOUNTED == "/" ]]; then 
+	# have nothing to do with unmounting root filesystem. These should
+	# be filtered by the /sda/ regexp above.
+	echo "Selected the filesystem root, exiting without action."
+	exit 1
+fi
+
+if [[ -n $MOUNTED ]] && [[ $PWD =~ $MOUNTED ]]; then 
+	# We are in the mountpoint or a subdirectory. We should move out.
+	echo "You are in the mounted directory."
+	exit 1
+fi
+# Try to do requested mount / unmount
+if [[ -z $MOUNTED ]]; then 
+	
+	udisksctl mount --block-device $DEVICE --no-user-interaction
+	echo "Copying mountpoint to clipboard "
+	USB=$(lsblk $DEVICE | awk '{print $7;}' | tail -n 1 )
+	echo $USB | xclip -i
+	echo "Finished."
+	exit 0
+
+else
+
+	echo "$DEVICE is mounted at $MOUNTED"
+	echo
+	udisksctl unmount --block-device $DEVICE --no-user-interaction
+	echo "Finished."
+	exit 0
+
+
+fi
+
+
+
+
