@@ -67,7 +67,7 @@ if [[ -z $MOUNTED ]]; then
 	udisksctl mount --block-device $DEVICE --no-user-interaction
 	echo "Copying mountpoint to clipboard "
 	USB=$(lsblk $DEVICE | awk '{print $7;}' | tail -n 1 )
-	echo $USB | xclip -i
+	echo $USB | xclip -i -r
 	echo "Finished."
 	exit 0
 
