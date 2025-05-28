@@ -9,6 +9,15 @@ redot() {
 	popd
 }
 
+wallp(){
+	pushd $1 || exit 1
+	SEL=$(find . | fzf )
+	if [[ -z $SEL ]]; then exit 1; fi
+	echo -n "Theme name => "
+	read NAME
+	wal -i $SEL -p $NAME
+	popd
+}
 
 clock() {
 	clear; 

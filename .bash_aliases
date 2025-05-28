@@ -1,5 +1,4 @@
 # misc
-alias get='sudo aptitude install '
 alias :q='exit'
 alias ytmp3='yt-dlp -f 'ba' -x --audio-format mp3 '
 alias filedate='date +%Y%m%d_%H%M%S'
@@ -7,10 +6,9 @@ alias jiggle='while true; do xdotool mousemove 250 0 mousemove restore; echo "-"
 alias python='python3'
 alias vim='nvim'
 
-# feh aliases
+# image aliases
 alias slideshow='feh -D2 -FZz ' 
-alias imgview='feh -g 1200x800 -.rZ'
-alias wallp='feh --bg-max' 
+alias imgview='feh -g 1200x800 -.rZ --draw-filename --draw-tinted'
 
 # wget aliases
 alias filerip='wget -e robots=off -r -nc -nd -np'
