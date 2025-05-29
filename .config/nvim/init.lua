@@ -44,8 +44,7 @@ require("gruvbox").setup({
   },
   transparent_mode = true,
 })
---[[
---[[ --]]
+--[[ 
 require("catppuccin").setup({
 	no_italic = true,
 	transparent_background = true,
@@ -54,6 +53,11 @@ require("catppuccin").setup({
 	}
 })
 --]]
+
+
 vim.o.background = "dark"
---vim.cmd([[colorscheme catppuccin]])
-vim.cmd([[colorscheme gruvbox]])
+vim.cmd.colorscheme([[gruvbox]])
+--vim.cmd.colorscheme([[everforest]])
+--vim.cmd.colorscheme([[catppuccin]])
+--vim.cmd.colorscheme([[edge]])
+--vim.cmd.colorscheme([[sonokai]])

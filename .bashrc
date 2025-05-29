@@ -8,6 +8,7 @@ case $- in
       *) return;;
 esac
 
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -101,21 +102,20 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# User includes: whatever sort of dumb thing from 2005 did i get into
-# . ~/.bash_prompt
 export TERM=xterm-256color
-export PATH=$PATH:~/bin
-export PATH=$PATH:~/.local/bin
+
 if [ -f ~/.bash_functions ]; then
 	. ~/.bash_functions
 fi
 
 # set editor variable
 export EDITOR=/usr/bin/vim
+
 #if bash prompt file exists, use it
 if [ -f ~/.bash_prompt ]; then
 	. ~/.bash_prompt
 fi
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -127,6 +127,16 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Created by `pipx` on 2025-03-01 18:59:38
-export PATH="$PATH:/home/fraziema/.local/bin"
-. "$HOME/.cargo/env"
+# set PATH so it includes user's private bin if it exists
+if [[ ! $PATH =~ "$HOME/bin" ]]; then
+	if [ -d "$HOME/bin" ] ; then
+		PATH="$HOME/bin:$PATH"
+	fi
+fi
+# set PATH so it includes user's private bin if it exists
+if [[ ! $PATH =~ "$HOME/.local/bin" ]]; then
+	if [ -d "$HOME/.local/bin" ] ; then
+		PATH="$HOME/.local/bin:$PATH"
+	fi
+fi
+
