@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+
+colorit(){
+	
+
+	c0="tput setaf 0"
+	c1="tput setaf 1"
+	c2="tput setaf 2"
+	c3="tput setaf 3"
+	c4="tput setaf 4"
+	c5="tput setaf 5"
+	c6="tput setaf 6"
+	c7="tput setaf 7"
+	c8="tput setaf 8"
+	c9="tput setaf 9"
+	c10="tput setaf 10"
+	c11="tput setaf 11"
+	c12="tput setaf 12"
+	c13="tput setaf 13"
+	c14="tput setaf 14"
+	c15="tput setaf 15"
+
+	d0="color  0"
+	d1="color  1"
+	d2="color  2"
+	d3="color  3"
+	d4="color  4"
+	d5="color  5"
+	d6="color  6"
+	d7="color  7"
+	d8="color  8"
+	d9="color  9"
+	d10="color 10"
+	d11="color 11"
+	d12="color 12"
+	d13="color 13"
+	d14="color 14"
+	d15="color 15"
+
+	echo
+	echo "to use, enter \"$c0\" using the color number"
+	echo
+
+	echo -n "$($c0) $d0"
+	echo -n "$($c1) $d1"
+	echo -n "$($c2) $d2"
+	echo    "$($c3) $d3"
+	echo -n "$($c4) $d4"
+	echo -n "$($c5) $d5"
+	echo -n "$($c6) $d6"
+	echo    "$($c7) $d7"
+	echo -n "$($c8) $d8"
+	echo -n "$($c9) $d9"
+	echo -n "$($c10) $d10"
+	echo    "$($c11) $d11"
+	echo -n "$($c12) $d12"
+	echo -n "$($c13) $d13"
+	echo -n "$($c14) $d14"
+	echo    "$($c15) $d15"
+	echo $($c7)
+}
+
+colorit 

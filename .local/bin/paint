@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 
-SEL=$(wal --theme | sed -e '/:/d' -e 's/- //g' | fzf | tr -d ' ') || exit 0
-wal --theme $SEL || echo "wal did not run" && echo 1
+SEL=$(wal --theme | sed -e '/:/d' -e 's/- //g' | fzf --height 50% --margin 5% --border double | tr -d ' ') || exit 0
+wal --theme $SEL || (echo "wal did not run" && exit 1)
+termcolors
