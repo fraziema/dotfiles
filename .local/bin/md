@@ -24,14 +24,15 @@ SEL=($(lsblk -o NAME,MOUNTPOINTS,TYPE -l -s -n 2>/dev/null |
 ))
 
 DEVICE="/dev/${SEL[0]}"
-echo "selected device $DEVICE"
 
 MOUNTED=${SEL[1]}
 
 ERR=${SEL[2]}
 
 # did anything get chosen from fzf?
-if [[ -z $SEL ]]; then exit 1; fi
+if [[ -z $? ]];  then exit 1 ; fi
+if [[ -z $SEL ]];  then exit 1 ; fi
+echo "selected device $DEVICE"
 
 # did too much get chosen from fzf?
 if [[ -n $ERR ]] || [[ $MOUNTED =~ "part" ]]; then
