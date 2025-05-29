@@ -1,8 +1,8 @@
 st(){
 	if [[ -z $(git status -s 2>/dev/null) ]]; then 
-		tput setaf $c  
+		tput setaf $clean  
 	else 
-		tput setaf $d
+		tput setaf $dirty
 	fi
 }
 
@@ -10,16 +10,21 @@ sesh(){
 	if [[ -z $SSH_CLIENT ]]; then 
 		echo -n $HOSTNAME
 	else 
-		tput setaf 6
+		tput setaf $SSHCOL
 		echo -n $HOSTNAME
 	fi
 }
 
 PROMPT_COMMAND='
-	d=9;
-	c=10;
-	CMD1=$(git branch --show-current 2>/dev/null)
-	CMD0=$(sesh)$(st)
+	SSHCOL=12;
+	dirty=9;
+	clean=10;
+	comcol=15;
+	usercol=14;
+	dircol=11
+	
+	CMD1=$(git branch --show-current 2>/dev/null);
+	CMD0=$(sesh)$(st);
 ';
 	
-PS1='\n $(tput setaf 3)\u @ ${CMD0} [${CMD1}]\n $(tput setaf 4)\w > $(tput setaf 15)'
+PS1='\n $(tput setaf $usercol)\u @ ${CMD0} [${CMD1}]\n $(tput setaf $dircol)\w > $(tput setaf $comcol)'
