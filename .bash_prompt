@@ -1,30 +1,29 @@
-st(){
+#!/usr/bin/env bash
+
+function st {
 	if [[ -z $(git status -s 2>/dev/null) ]]; then 
-		tput setaf $clean  
+		gc="$clean"  
 	else 
-		tput setaf $dirty
+		gc="$dirty"
 	fi
+	echo -n "$gc[$(git branch --show-current 2>/dev/null)]$Reset"
 }
 
-sesh(){
-	if [[ -z $SSH_CLIENT ]]; then 
-		echo -n $HOSTNAME
-	else 
-		tput setaf $SSHCOL
-		echo -n $HOSTNAME
+function sesh {
+	if [[ -n $SSH_CLIENT ]]; then 
+		echo -n "$sc($USER@$HOSTNAME)$Reset"
 	fi
 }
-
 PROMPT_COMMAND='
-	SSHCOL=12;
-	dirty=9;
-	clean=10;
-	comcol=15;
-	usercol=14;
-	dircol=11
+	source ~/.bash_colors
+	clean=$Green
+	dirty=$Red
+	sc=$Cyan
 	
-	CMD1=$(git branch --show-current 2>/dev/null);
-	CMD0=$(sesh)$(st);
-';
-	
-PS1='\n $(tput setaf $usercol)\u @ ${CMD0} [${CMD1}]\n $(tput setaf $dircol)\w > $(tput setaf $comcol)'
+	PS1=" $(sesh)\n $(st) \w > "
+	'
+
+
+
+# old bash prompt with tput colors 
+# \n $(tput setaf 3)\u @ ${CMD0} [${CMD1}]\n $(tput setaf 4)\w > $(tput setaf 15)

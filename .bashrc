@@ -111,7 +111,21 @@ fi
 # set editor variable
 export EDITOR=/usr/bin/vim
 
-#if bash prompt file exists, use it
+# # set git status in prompt using git builtins:
+# source /etc/bash_completion.d/git-prompt
+# export GIT_PS1_SHOWDIRTYSTATE=1
+# export GIT_PS1_SHOWCOLORHINTS=1
+# export GIT_PS1_HIDE_IF_PWD_IGNORED=1
+
+# use PROMPT_COMMAND to build PS1 in a regular script. 
+# function prompt_command {
+#   #export PS1=$(~/.bash_prompt)
+#   export PS1='>'
+# }
+# export PROMPT_COMMAND=prompt_command
+
+# if bash prompt file exists, use it
+# don't use this if you use the PROMPT COMMAND defined above
 if [ -f ~/.bash_prompt ]; then
 	. ~/.bash_prompt
 fi
