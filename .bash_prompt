@@ -1,12 +1,15 @@
 #!/usr/bin/env bash
 
 function st {
-	if [[ -z $(git status -s 2>/dev/null) ]]; then 
-		gc="$clean"  
+	GS="$(git branch --show-current 2>/dev/null)"
+	if [[ -z $GS ]]; then 
+		gc="$notgit"
+	elif [[ -z $(git status -s 2>/dev/null) ]]; then 
+		gc="$clean[$GS]"  
 	else 
-		gc="$dirty"
+		gc="$dirty[$GS]"
 	fi
-	echo -n "$gc[$(git branch --show-current 2>/dev/null)]$Reset"
+	echo -n "$gc"
 }
 
 function sesh {
@@ -16,11 +19,12 @@ function sesh {
 }
 PROMPT_COMMAND='
 	source ~/.bash_colors
-	clean=$Green
-	dirty=$Red
+	clean=$BGreen
+	dirty=$BRed
+	notgit=$BBlue
 	sc=$Cyan
 	
-	PS1=" $(sesh)\n $(st) \w > "
+	PS1=" $(sesh)\n $(st) \w $Reset> "
 	'
 
 
