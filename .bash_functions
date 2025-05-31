@@ -1,5 +1,15 @@
 #!/usr/bin/env bash
 
+toggle_dirtrim(){
+
+	if [[ $PROMPT_DIRTRIM -eq 0 ]]; then 
+		PROMPT_DIRTRIM=2
+	else
+		PROMPT_DIRTRIM=0
+	fi
+
+
+}
 redot() {
 	echo "Moving to dotfiles."
 	pushd ~/dotfiles;
@@ -57,11 +67,10 @@ hashmove() {
 }
 
 
-timer() { time read -n 1; }
+timer() { echo "Press any key to stop timer >"; time read -n 1; }
 
 cdl() { 
-	cd "$1"
- 	ls 
+	cd "$1" && ls -a 
 }
 
 mcd()
