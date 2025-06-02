@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# Script builds config files that have a default and a host-specific 
+# component; to add a build, make sure you have a config split into 
+# <config.default> and <config.$HOSTNAME> and use pushd and popd to 
+# enter the appropriate config directories
+#
+# This should be placed somewhere convenient, and ran in a wm startup 
+# script
+
+# i3 status
+pushd ~/.config/i3status
+cat config.default config.$(hostname) > config;
+popd
+
+# alacritty terminal
+pushd ~/.config/alacritty
+cat alacritty.default alacritty.$(hostname) > alacritty.yml;
+popd
+	
