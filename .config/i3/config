@@ -17,7 +17,7 @@ exec --no-startup-id wal -R
 
 exec_always --no-startup-id picom
 
-exec_always --no-startup-id ~/.config/i3status/mkconf
+exec_always --no-startup-id ~/.config/mkconf
 
 # reused from pywal16 github:
 # Set colors from Xresources

@@ -8,13 +8,15 @@ window:
     lines: 25
   #opacity: 0.2
 
+import:
+    - ~/.config/alacritty/themes/breeze.yaml
+    #- ~/.config/alacritty/themes/gruvbox_dark.yaml
+
+
+
 font:
   normal:
       family: monospace
   
   size: 24.0
 
-
-import:
-    - ~/.config/alacritty/themes/breeze.yaml
-    #- ~/.config/alacritty/themes/gruvbox_dark.yaml
