@@ -1,6 +1,18 @@
 
 set $mod Mod4
 
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
 # is used in the bar {} block below.
 font pango:monospace bold italic 14
 
@@ -16,7 +28,6 @@ exec --no-startup-id ~/.fehbg
 exec --no-startup-id wal -R
 
 exec_always --no-startup-id picom
-
 exec_always --no-startup-id ~/.config/mkconf
 
 # reused from pywal16 github:
@@ -53,7 +64,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 #remove titlebars, set border on windows
-for_window [class="^.*"] border pixel 5
+default_border pixel 4
 
 
 ## keybindings
@@ -83,19 +94,41 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
 
-bindsym $mod+bracketleft move container to workspace prev
-bindsym $mod+bracketright move container to workspace next
+mode "move" {
+# back to normal: Enter or Escape or $mod+r
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+	bindsym $mod+m mode "default"
+
+	bindsym h move left
+	bindsym j move down
+	bindsym k move up
+	bindsym l move right
+
+	bindsym comma move container to workspace prev
+	bindsym period move container to workspace next
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+	bindsym Left move left
+	bindsym Down move down
+	bindsym Up move up
+	bindsym Right move right
+
+	# move focused container to workspace
+	bindsym 1 move container to workspace number $ws1
+	bindsym 2 move container to workspace number $ws2
+	bindsym 3 move container to workspace number $ws3
+	bindsym 4 move container to workspace number $ws4
+	bindsym 5 move container to workspace number $ws5
+	bindsym 6 move container to workspace number $ws6
+	bindsym 7 move container to workspace number $ws7
+	bindsym 8 move container to workspace number $ws8
+	bindsym 9 move container to workspace number $ws9
+	bindsym 0 move container to workspace number $ws10
+
+}
+bindsym $mod+m mode "move" 
 
 # splits
 bindsym $mod+y split horizontal	
@@ -108,24 +141,12 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 bindsym $mod+backslash floating toggle
 # bindsym $mod+Shift+space floating toggle
-bindsym $mod+space focus mode_toggle
 
 bindsym $mod+a focus parent
 
 bindsym $mod+minus scratchpad show
 bindsym $mod+equal move scratchpad 
 
-# We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
 
 # switch to workspace
 bindsym $mod+comma workspace prev
@@ -142,18 +163,6 @@ bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
-# move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace number $ws1
-bindsym $mod+Shift+2 move container to workspace number $ws2
-bindsym $mod+Shift+3 move container to workspace number $ws3
-bindsym $mod+Shift+4 move container to workspace number $ws4
-bindsym $mod+Shift+5 move container to workspace number $ws5
-bindsym $mod+Shift+6 move container to workspace number $ws6
-bindsym $mod+Shift+7 move container to workspace number $ws7
-bindsym $mod+Shift+8 move container to workspace number $ws8
-bindsym $mod+Shift+9 move container to workspace number $ws9
-bindsym $mod+Shift+0 move container to workspace number $ws10
-
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -163,27 +172,27 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+# These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+# Pressing left will shrink the window’s width.
+# Pressing right will grow the window’s width.
+# Pressing up will shrink the window’s height.
+# Pressing down will grow the window’s height.
+	bindsym h resize shrink width 10 px or 10 ppt
+		bindsym j resize grow height 10 px or 10 ppt
+		bindsym k resize shrink height 10 px or 10 ppt
+		bindsym l resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+# same bindings, but for the arrow keys
+		bindsym Left resize shrink width 10 px or 10 ppt
+		bindsym Down resize grow height 10 px or 10 ppt
+		bindsym Up resize shrink height 10 px or 10 ppt
+		bindsym Right resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+# back to normal: Enter or Escape or $mod+r
+		bindsym Return mode "default"
+		bindsym Escape mode "default"
+		bindsym $mod+r mode "default"
 }
 
 bindsym $mod+r mode "resize"
@@ -192,21 +201,21 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
 	id bar-1
-    status_command i3status
-	i3bar_command i3bar 
-	position bottom
-	colors {
-		background #000000
-		statusline $fg
-		separator  $fg
+		status_command i3status
+		i3bar_command i3bar 
+		position bottom
+		colors {
+			background #000000
+				statusline $fg
+				separator  $fg
 
 #		     <colorclass>	<edge>	<bg>	<text>
-		focused_workspace	#4c7899	#285577	#ffffff
-        active_workspace	$fg		$bg		#ffffff
-        inactive_workspace	#333333 #222222 #444444
-        urgent_workspace	#2f343a #009000 #ffffff
-        binding_mode		#2f343a #900000 #ffffff
-	}
+				focused_workspace	#4c7899	#285577	#ffffff
+				active_workspace	$fg		$bg		#ffffff
+				inactive_workspace	#333333 #222222 #444444
+				urgent_workspace	#2f343a #009000 #ffffff
+				binding_mode		#2f343a #900000 #ffffff
+		}
 }
 
 bindsym $mod+F12 bar mode toggle
