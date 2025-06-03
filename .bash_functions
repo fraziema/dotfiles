@@ -51,7 +51,7 @@ b36(){
 }
 
 hashmove() { 
-	NAME="$(md5sum $1 | cut -d' ' -f1)"
+	NAME=$(md5sum "$1" | cut -d' ' -f1)
 	if [ "$2" = "-c" ]; then
 		NAME=$NAME-$1
 	fi
@@ -60,7 +60,7 @@ hashmove() {
 		NAME=$NAME-$(sha256sum "$1"|cut -d' ' -f1)
 	fi
 	if [ ! -f $NAME.$EXT ]; then 
-		mv $1 $NAME.$EXT;
+		mv "$1" $NAME.$EXT;
 	else 
 		echo "$NAME.$EXT conflicts with existing file; cannot rename";
 	fi
