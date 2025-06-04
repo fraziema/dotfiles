@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+
+function md() {
+  pandoc $1 > /tmp/$1.html
+  xdg-open /tmp/$1.html
+}
+
 toggle_dirtrim(){
 
 	if [[ $PROMPT_DIRTRIM -eq 0 ]]; then 
@@ -20,9 +26,9 @@ redot() {
 }
 
 wallp(){
-	pushd $1 || exit 1
+	pushd $1 || return 1
 	SEL=$(find . | fzf )
-	if [[ -z $SEL ]]; then exit 1; fi
+	if [[ -z $SEL ]]; then return 1; fi
 	echo -n "Theme name => "
 	read NAME
 	wal -i $SEL -p $NAME

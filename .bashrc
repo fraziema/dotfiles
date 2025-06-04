@@ -147,10 +147,22 @@ if [[ ! $PATH =~ "$HOME/bin" ]]; then
 		PATH="$HOME/bin:$PATH"
 	fi
 fi
+
 # set PATH so it includes user's private bin if it exists
 if [[ ! $PATH =~ "$HOME/.local/bin" ]]; then
 	if [ -d "$HOME/.local/bin" ] ; then
 		PATH="$HOME/.local/bin:$PATH"
 	fi
 fi
+
+# user nonsense:
+#
+# Import colorscheme from 'wal' asynchronously
+# &   # Run the process in the background.
+# ( ) # Hide shell job control messages.
+# Not supported in the "fish" shell.
+(cat ~/.cache/wal/sequences &)
+
+# To add support for TTYs this line can be optionally added.
+source ~/.cache/wal/colors-tty.sh
 
