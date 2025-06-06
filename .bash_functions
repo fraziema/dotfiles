@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 
-function md() {
+function mkdn() {
   pandoc $1 > /tmp/$1.html
   xdg-open /tmp/$1.html
 }
