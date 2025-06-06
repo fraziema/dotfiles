@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # Script builds config files that have a default and a host-specific 
 # component; to add a build, make sure you have a config split into 

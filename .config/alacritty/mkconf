@@ -1,6 +1,0 @@
-#!/bin/sh
-
-pushd ~/.config/alacritty
-cat alacritty.default alacritty.$(hostname) > alacritty.yml;
-popd
-	
