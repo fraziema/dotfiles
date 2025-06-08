@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-TS_SEARCH_PATHS=(~/ ~/dotfiles ~/Documents/ ~/.config ~/.local)
+TS_SEARCH_PATHS=(~/ ~/dotfiles ~/Documents/ ~/.config ~/.local /media/$USER)
 
 switch_to() {
     if [[ -z $TMUX ]]; then
