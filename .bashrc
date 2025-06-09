@@ -157,6 +157,15 @@ fi
 
 # user nonsense:
 #
+# add local texlive to path
+
+if [[ ! $PATH =~ "$HOME/.local/texlive2025/bin/x86_64-linux" ]]; then
+	if [ -d "$HOME/.local/texlive2025/bin/x86_64-linux" ] ; then
+		PATH="$HOME/.local/texlive2025/bin/x86_64-linux:$PATH"
+	fi
+fi
+
+
 # Import colorscheme from 'wal' asynchronously
 # &   # Run the process in the background.
 # ( ) # Hide shell job control messages.
