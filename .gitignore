@@ -6,4 +6,5 @@ Prusa*
 *SCAD
 *~
 .config/i3status/config
+.config/alacritty/*.yml
 images/
