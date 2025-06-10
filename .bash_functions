@@ -1,21 +1,28 @@
 #!/usr/bin/env bash
 
+snip() {
+	local CHOOSER="fzf --height=~30% --border double --tac"
+	history | $CHOOSER | awk '{$1=""; print $0}' | tee -a ~/.snippets  
+}
 
-function mkdn() {
+# for making markdown pretty and in the browser
+mkdn() {
   pandoc $1 > /tmp/$1.html
   xdg-open /tmp/$1.html
 }
 
+# if the path is too long to display,
+# this toggles the dirtrim var in the prompt
 toggle_dirtrim(){
-
 	if [[ $PROMPT_DIRTRIM -eq 0 ]]; then 
 		PROMPT_DIRTRIM=2
 	else
 		PROMPT_DIRTRIM=0
 	fi
-
-
 }
+
+# make sure backed up dotfiles are symlinked properly
+# uses gnu stow, and keeps everything in ~/dotfiles git repo
 redot() {
 	echo "Moving to dotfiles."
 	pushd ~/dotfiles;
@@ -25,6 +32,8 @@ redot() {
 	popd
 }
 
+# select an image file, generate a colorscheme, and 
+# set wallpaper and colorscheme for terminals
 wallp(){
 	pushd $1 || return 1
 	SEL=$(find . | fzf )
@@ -35,6 +44,7 @@ wallp(){
 	popd
 }
 
+#clear the terminal and display updating current time
 clock() {
 	clear; 
 	while true;do 
@@ -44,10 +54,13 @@ clock() {
 	done 
 }
 
+# make a random base-64 string (should be typable)
 randb64(){  
     </dev/urandom base64 | head -c $1 
 }
 
+# convert integer to base-36 ( a base-32 might be better unless 
+# you need base-6 2d vectors or something. This is hack-y
 b36(){
         b36arr=(0 1 2 3 4 5 6 7 8 9 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z)
         for     i in $(echo "obase=36; $1"| bc)
@@ -56,6 +69,7 @@ b36(){
         echo
 }
 
+# for file in directory, calculate md5 or md5+sha256 hash and rename it to that 
 hashmove() { 
 	NAME=$(md5sum "$1" | cut -d' ' -f1)
 	if [ "$2" = "-c" ]; then
@@ -72,19 +86,23 @@ hashmove() {
 	fi
 }
 
-
+# stopwatch between keypresses
 timer() { echo "Press any key to stop timer >"; time read -n 1; }
 
+# change directory and see what is there 
 cdl() { 
 	cd "$1" && ls -a 
 }
 
+#make directory and immediately change to it
 mcd()
 {
     mkdir -p "${1}" && \
     cd "${1}"
 }
 
+# countdown / egg timer (input hours:minutes:seconds)
+# Why can't i just input total num of seconds?? this is 15 years old.
 function countdown 
 {
         local OLD_IFS="${IFS}"
@@ -109,10 +127,12 @@ function countdown
         echo "        "
 }
 
+# nice ls of some sort
 list() { 
 	ls -thor $1
 }
 
+# kill processes at scheduled time
 dkill() { 
 	echo "killall $2" | at "$1" 
 }

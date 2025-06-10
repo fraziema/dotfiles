@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+echo "Hey, this file should NEVER be sourced or executed."
+echo "Do not source or run this file."
+
+# if file is sourced, exit by return
+return 2>/dev/null
+
+echo "Seriously, do not run this file"
+
+# if file is run as a script, then exit the script (cannot return)
+if true; then exit 1; fi
+
+echo "This should not have been printed"
+
+## ok here are the snippets...
+
+cd $(find . -type f | fzf)
+sudo ntfslabel /dev/sdb1 LABEL
