@@ -37,8 +37,13 @@ echo "selected device $DEVICE"
 # did too much get chosen from fzf?
 if [[ -n $ERR ]] || [[ $MOUNTED =~ "part" ]]; then
 	echo "ERR has value $ERR when it should not. MOUNTED has value $MOUNTED 
+	
+	If you have a space in the mount point path, you should change it to underscore (or make it one word/chunk). The method to do that looks like
 
-	Something is wrong in the fzf selector. Exiting..."
+		> umount <device>			// this error shows up when mounted
+		> sudo ntfslabel <device> MY_LABEL 
+
+	Otherwise, something is wrong in the fzf selector. Exiting..."
 	exit 1
 fi
 
