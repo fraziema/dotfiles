@@ -137,3 +137,5 @@ dkill() {
 	echo "killall $2" | at "$1" 
 }
 
+#old way to make an 8 character temp password
+mkpw() { head /dev/urandom | uuencode -m - | sed -n 2p | cut -c1-${1:-8}; }

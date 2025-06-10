@@ -1,3 +1,0 @@
-gpsd /dev/ttyUSB0
-xgps  -speedunits mph -altunits feet -l s &
-xgpsspeed -speedunits mph &

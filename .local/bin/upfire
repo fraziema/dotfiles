@@ -1,5 +1,6 @@
 #!/usr/bin/bash
 
-cd Downloads
+pushd ~/Downloads
 tar -xf firefox*
 sudo mv -i firefox /opt/
+popd
