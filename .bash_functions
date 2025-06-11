@@ -5,12 +5,6 @@ snip() {
 	history | $CHOOSER | awk '{$1=""; print $0}' | tee -a ~/.snippets  
 }
 
-# for making markdown pretty and in the browser
-mkdn() {
-  pandoc $1 > /tmp/$1.html
-  xdg-open /tmp/$1.html
-}
-
 # if the path is too long to display,
 # this toggles the dirtrim var in the prompt
 toggle_dirtrim(){

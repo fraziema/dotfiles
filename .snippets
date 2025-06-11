@@ -15,5 +15,6 @@ echo "This should not have been printed"
 
 ## ok here are the snippets...
 
-cd $(find . -type f | fzf)
-sudo ntfslabel /dev/sdb1 LABEL
+ cd $(find . -type d | fzf)
+ sudo ntfslabel /dev/sdb1 LABEL
+ find . -type f -name "*.ppt*" | parallel cp {} ../ppt/
