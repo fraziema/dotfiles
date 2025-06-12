@@ -2,17 +2,17 @@
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
-  if vim.v.shell_error ~= 0 then
-    vim.api.nvim_echo({
-      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-      { out, "WarningMsg" },
-      { "\nPress any key to exit..." },
-    }, true, {})
-    vim.fn.getchar()
-    os.exit(1)
-  end
+	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+	local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+	if vim.v.shell_error ~= 0 then
+		vim.api.nvim_echo({
+			{ "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+			{ out, "WarningMsg" },
+			{ "\nPress any key to exit..." },
+		}, true, {})
+		vim.fn.getchar()
+		os.exit(1)
+	end
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -35,16 +35,29 @@ require("keymaps")
 require("remaps")
 
 require("gruvbox").setup({
-  italic = {
-    strings = false,
-    emphasis = false,
-    comments = false,
-    operators = false,
-    folds = false,
-  },
-  transparent_mode = true,
+	italic = {
+		strings = false,
+		emphasis = false,
+		comments = false,
+		operators = false,
+		folds = false,
+	},
+	transparent_mode = true,
 })
---[[ 
+
+require('darcubox').setup({
+	options = {
+		transparent = true,
+		styles = {
+			comments = {  }, 
+			functions = { bold = true }, 
+			keywords = { bold = true },
+			types = { bold = true }, 
+		}
+	}
+})
+
+
 require("catppuccin").setup({
 	no_italic = true,
 	transparent_background = true,
@@ -52,12 +65,27 @@ require("catppuccin").setup({
 		comments = { NONE },
 	}
 })
---]]
 
+require("tokyonight").setup({
+	transparent = true,
+	styles = {
+		comments = { italic = false },
+		keywords = { italic = false },
+		functions = { bold = true },
+		variables = {},
+		-- Background styles. Can be "dark", "transparent" or "normal"
+		sidebars = "dark", -- style for sidebars, see below
+		floats = "dark", -- style for floating windows
+	},
+
+})
 
 vim.o.background = "dark"
-vim.cmd.colorscheme([[gruvbox]])
---vim.cmd.colorscheme([[everforest]])
---vim.cmd.colorscheme([[catppuccin]])
---vim.cmd.colorscheme([[edge]])
---vim.cmd.colorscheme([[sonokai]])
+vim.cmd.colorscheme([[tokyonight-storm]])
+-- vim.cmd.colorscheme([[darcubox]])
+-- vim.cmd.colorscheme([[nautilus]])
+-- vim.cmd.colorscheme([[gruvbox]])
+-- vim.cmd.colorscheme([[everforest]])
+-- vim.cmd.colorscheme([[catppuccin]])
+-- vim.cmd.colorscheme([[edge]])
+-- vim.cmd.colorscheme([[sonokai]])

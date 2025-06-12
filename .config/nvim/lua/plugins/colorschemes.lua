@@ -9,6 +9,28 @@ return{
 	},
 
 	{
+		"folke/tokyonight.nvim",
+		priority = 1000,
+		opts = { }
+	},
+		
+	-- {
+	-- 	'pwntester/nautilus.nvim', 
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	--config = function()
+	-- 	--	require("nautilus").load {
+	-- 	--		transparent = true,
+	-- 	--	}
+	-- 	--end
+	-- },
+
+	{
+		"Koalhack/darcubox-nvim",
+		config = function() vim.cmd("colorscheme darcubox") end
+	},
+
+	{
       'sainnhe/sonokai',
       lazy = false,
       priority = 1000,
