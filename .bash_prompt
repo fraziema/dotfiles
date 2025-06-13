@@ -7,7 +7,7 @@ function st {
 	elif [[ -z $(git status -s 2>/dev/null) ]]; then 
 		gc="$clean[$GS]"  
 	else 
-		gc="$dirty[$GS]"
+		gc="$dirty[$GS ++]"
 	fi
 	echo -n "$gc"
 }
