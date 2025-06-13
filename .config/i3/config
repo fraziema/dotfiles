@@ -1,5 +1,9 @@
-
+# base prefix keys
 set $mod Mod4
+set $smod Mod1
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
 
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
@@ -13,51 +17,6 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
-# is used in the bar {} block below.
-font pango:monospace bold italic 14
-
-# Start XDG autostart .desktop files using dex. See also
-# https://wiki.archlinux.org/index.php/XDG_Autostart
-exec --no-startup-id dex --autostart --environment i3
-
-#start apps that should run at the beginning, but not .desktop
-exec --no-startup-id xrandr --output HDMI-1 --mode 1680x1050 --rate 59.88
-exec --no-startup-id xcape -e 'Control_L=Escape' -t 225 
-exec --no-startup-id nm-applet
-exec --no-startup-id ~/.fehbg
-exec --no-startup-id wal -R
-
-exec_always --no-startup-id picom
-exec_always --no-startup-id ~/.config/mkconf
-
-# reused from pywal16 github:
-# Set colors from Xresources
-# Change 'color7' and 'color2' to whatever colors you want i3 to use 
-# from the generated scheme.
-# NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
-# it fails to get colors from Xresources.
-
-set_from_resource $fg i3wm.color11 
-set_from_resource $bg i3wm.color8
-
-# class                 border  backgr. text indicator child_border
-client.focused          $bg     $bg     $fg  $bg       $fg
-client.focused_inactive $bg     $bg     $fg  $bg       $bg
-client.unfocused        $bg     $bg     $fg  $bg       $bg
-client.urgent           #ff0000 $bg     $fg  $bg       $bg
-client.placeholder      $bg     $bg     $fg  $bg       $bg
-
-client.background       $bg
-
-# Use pactl to adjust volume in PulseAudio.
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
 
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
@@ -67,156 +26,15 @@ tiling_drag modifier titlebar
 default_border pixel 4
 
 
-## keybindings
-bindsym $mod+Shift+q kill
+hide_edge_borders smart_no_gaps
 
-bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+d exec --no-startup-id dmenu_run -fn 'monospace-24'
-bindsym $mod+b exec --no-startup-id firefox -p
-bindsym $mod+n open 
-## open is undocumented and may go away
+gaps inner 5px
+gaps outer 0px
+smart_gaps on
 
-bindsym --release control+Print exec --no-startup-id scrot -u
-bindsym --release $mod+Print exec --no-startup-id scrot -s
-
-# change focus
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
-bindsym $mod+semicolon focus floating
-bindsym $mod+g focus mode_toggle
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
-# move focused window
-
-mode "move" {
-# back to normal: Enter or Escape or $mod+r
-	bindsym Return mode "default"
-	bindsym Escape mode "default"
-	bindsym $mod+m mode "default"
-
-	bindsym h move left
-	bindsym j move down
-	bindsym k move up
-	bindsym l move right
-
-	bindsym comma move container to workspace prev
-	bindsym period move container to workspace next
-
-# alternatively, you can use the cursor keys:
-	bindsym Left move left
-	bindsym Down move down
-	bindsym Up move up
-	bindsym Right move right
-
-	# move focused container to workspace
-	bindsym 1 move container to workspace number $ws1
-	bindsym 2 move container to workspace number $ws2
-	bindsym 3 move container to workspace number $ws3
-	bindsym 4 move container to workspace number $ws4
-	bindsym 5 move container to workspace number $ws5
-	bindsym 6 move container to workspace number $ws6
-	bindsym 7 move container to workspace number $ws7
-	bindsym 8 move container to workspace number $ws8
-	bindsym 9 move container to workspace number $ws9
-	bindsym 0 move container to workspace number $ws10
-
-}
-bindsym $mod+m mode "move" 
-
-# splits
-bindsym $mod+y split horizontal	
-bindsym $mod+v split vertical
-bindsym $mod+t split toggle
-
-bindsym $mod+f fullscreen toggle
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
-bindsym $mod+backslash floating toggle
-bindsym $mod+i floating toggle
-# bindsym $mod+Shift+space floating toggle
-
-bindsym $mod+a focus parent
-
-bindsym $mod+minus scratchpad show
-bindsym $mod+equal move scratchpad 
-
-
-# switch to workspace
-bindsym $mod+comma workspace prev
-bindsym $mod+period workspace next
-
-bindsym $mod+1 workspace number $ws1
-bindsym $mod+2 workspace number $ws2
-bindsym $mod+3 workspace number $ws3
-bindsym $mod+4 workspace number $ws4
-bindsym $mod+5 workspace number $ws5
-bindsym $mod+6 workspace number $ws6
-bindsym $mod+7 workspace number $ws7
-bindsym $mod+8 workspace number $ws8
-bindsym $mod+9 workspace number $ws9
-bindsym $mod+0 workspace number $ws10
-
-# reload the configuration file
-bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-
-# resize window (you can also use the mouse for that)
-mode "resize" {
-# These bindings trigger as soon as you enter the resize mode
-
-# Pressing left will shrink the window’s width.
-# Pressing right will grow the window’s width.
-# Pressing up will shrink the window’s height.
-# Pressing down will grow the window’s height.
-	bindsym h resize shrink width 10 px or 10 ppt
-		bindsym j resize grow height 10 px or 10 ppt
-		bindsym k resize shrink height 10 px or 10 ppt
-		bindsym l resize grow width 10 px or 10 ppt
-
-# same bindings, but for the arrow keys
-		bindsym Left resize shrink width 10 px or 10 ppt
-		bindsym Down resize grow height 10 px or 10 ppt
-		bindsym Up resize shrink height 10 px or 10 ppt
-		bindsym Right resize grow width 10 px or 10 ppt
-
-# back to normal: Enter or Escape or $mod+r
-		bindsym Return mode "default"
-		bindsym Escape mode "default"
-		bindsym $mod+r mode "default"
-}
-
-bindsym $mod+r mode "resize"
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-	id bar-1
-		status_command i3status
-		i3bar_command i3bar 
-		position bottom
-		colors {
-			background #000000
-				statusline $fg
-				separator  $fg
-
-#		     <colorclass>	<edge>	<bg>	<text>
-				focused_workspace	#4c7899	#285577	#ffffff
-				active_workspace	$fg		$bg		#ffffff
-				inactive_workspace	#333333 #222222 #444444
-				urgent_workspace	#2f343a #009000 #ffffff
-				binding_mode		#2f343a #900000 #ffffff
-		}
-}
-
-bindsym $mod+F12 bar mode toggle
+include autoexec
+include theme
+include audio
+include move
+include resize
+include binds

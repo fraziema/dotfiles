@@ -1,0 +1,34 @@
+# move focused window
+mode "move" {
+# back to normal: Enter or Escape or $mod+r
+	bindsym Return mode "default"
+		bindsym Escape mode "default"
+		bindsym $mod+m mode "default"
+
+		bindsym h move left
+		bindsym j move down
+		bindsym k move up
+		bindsym l move right
+
+		bindsym comma move container to workspace prev
+		bindsym period move container to workspace next
+
+# alternatively, you can use the cursor keys:
+		bindsym Left move left
+		bindsym Down move down
+		bindsym Up move up
+		bindsym Right move right
+
+# move focused container to workspace
+		bindsym 1 move container to workspace number $ws1
+		bindsym 2 move container to workspace number $ws2
+		bindsym 3 move container to workspace number $ws3
+		bindsym 4 move container to workspace number $ws4
+		bindsym 5 move container to workspace number $ws5
+		bindsym 6 move container to workspace number $ws6
+		bindsym 7 move container to workspace number $ws7
+		bindsym 8 move container to workspace number $ws8
+		bindsym 9 move container to workspace number $ws9
+		bindsym 0 move container to workspace number $ws10
+
+}
