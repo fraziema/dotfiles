@@ -1,6 +1,10 @@
 -- Clear highlights on search when pressing <Esc> in normal mode
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlighting" })
-
+ 
+-- search buffers in Telescope
+vim.keymap.set("n", "<leader>sb", function ()
+	vim.cmd.Telescope("buffers")
+	end , { desc = "[S]earch [K]eymaps" })
 
 -- Keybinds to make split navigation easi, { desc = "Move focus to the left window" })
 --  See `:help wincmd` for a list of all window commands
