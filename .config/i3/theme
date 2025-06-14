@@ -8,8 +8,10 @@
 set_from_resource $fg i3wm.color10 
 set_from_resource $bg i3wm.color8
 
+set $tcolor #007788
+
 # class                 border  backgr. text indicator child_border
-client.focused          $bg     $bg     $fg  $bg       $fg
+client.focused          $tcolor     #111111     $tcolor  $bg       $tcolor
 client.focused_inactive $bg     $bg     $fg  $bg       $bg
 client.unfocused        $bg     $fg     $bg  $bg       $bg
 client.urgent           #ff0000 $bg     $fg  $bg       $bg
@@ -29,12 +31,13 @@ bar {
 		position bottom
  		colors {
  			background #111111
-			statusline $fg
+			#statusline #00aaff #tmux sline
+			statusline #007788
 			separator  $fg
 # #			<colorclass>		<edge>	<bg>	<text>
-			focused_workspace	#4c7899	#f35566	#ffffff
+			focused_workspace	#4c7899	#ff7700	#220066
 			active_workspace	#333333	#222222	#ffffff
-			inactive_workspace	#333333 #222222 #007777
+			inactive_workspace	#333333 #222222 #007788
 			urgent_workspace	#2f343a #009000 #ffffff
 			binding_mode		#2f343a #900000 #ffffff
  		}

@@ -24,7 +24,7 @@ tiling_drag modifier titlebar
 
 #remove titlebars, set border on windows
 default_border pixel 3
-
+title_align center
 workspace_auto_back_and_forth yes
 
 hide_edge_borders smart_no_gaps
