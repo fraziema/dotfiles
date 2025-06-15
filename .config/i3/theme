@@ -34,7 +34,6 @@ bar {
 	status_command i3status
 		i3bar_command i3bar 
 		position bottom
-		tray_output primary
 		workspace_min_width 27
 		padding 0 10px
  		colors {
