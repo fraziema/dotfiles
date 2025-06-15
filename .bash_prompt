@@ -14,7 +14,7 @@ function st {
 
 function sesh {
 	if [[ -n $SSH_CLIENT ]]; then 
-		echo -n "$sc($USER@$HOSTNAME)$Reset"
+		echo -n "$sc($USER@$HOSTNAME)$Reset\n"
 	fi
 }
 PROMPT_COMMAND='
@@ -24,7 +24,7 @@ PROMPT_COMMAND='
 	notgit=$BBlue
 	sc=$Cyan
 	
-	PS1=" $(sesh)\n $(st) \w $Reset> "
+	PS1="$(sesh) $(st) \w $Reset> "
 	'
 
 
