@@ -6,6 +6,7 @@ Currently contains the following
 
   - neovim config (minimal changes: keybinds etc.)
       - telescope / fzf
+      - which-key, including a delay so it isnt annoying
       - iron repl
       - colorschemes
       - vimTeX
