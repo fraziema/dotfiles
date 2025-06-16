@@ -37,19 +37,19 @@ bar {
 		workspace_min_width 27
 		padding 0 10px
  		colors {
- 			background #111111
+ 			background #222222
 			#statusline #00aaff #tmux sline
 			statusline $tc1
 			separator  $fg
 # #			<colorclass>		<edge>	<bg>	<text>
-			focused_workspace	#4c7899	$tc2	#220066
+			focused_workspace	$tc2	#222222	$tc2
 			active_workspace	#333333	#222222	#ffffff
 			inactive_workspace	#333333 #222222 $tc1
 			urgent_workspace	#2f343a #009000 #ffffff
 			binding_mode		#2f343a #900000 #ffffff
  		}
  }
-
+# #220066	#4c7899			
 
 # set_from_resource $term_background background 
 # set_from_resource $term_foreground foreground 
