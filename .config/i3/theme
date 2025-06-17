@@ -12,12 +12,12 @@ set_from_resource $bg i3wm.color8
 #set $tc1 #007788
 set $tc1 #1099d0
 set $tc2 #ff7700
-# class                 border  backgr. text indicator child_border
-client.focused          $tcolor     #111111     $tcolor  $bg       $tc2
-client.focused_inactive $bg     $bg     $fg  $bg       $bg
-client.unfocused        $bg     $fg     $bg  $bg		$tc1
-client.urgent           #ff0000 $bg     $fg  $bg       $bg
-client.placeholder      $bg     $bg     $fg  $bg       $bg
+# class                 border	backgr.	text	indicator	child_border
+client.focused          $tc2	#111111 $tc1	$bg			$tc2
+client.focused_inactive $bg     $bg     $fg		$bg			$bg
+client.unfocused        $bg     $fg     $bg		$bg			$tc1
+client.urgent           #ff0000 $bg     $fg		$bg			$bg
+client.placeholder      $bg     $bg     $fg		$bg			$bg
 
 client.background       $bg
 
