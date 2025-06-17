@@ -1,3 +1,4 @@
+# NEVER EDIT README.MD ON GITHUB -- IT WILL MAKE YOU PULL README AND MERGE DEEZ
 ## so, i discovered that you can setup a joke in the first 80 char of a commit message 
 ### and then put the punchline in the overflow messages
 **deez**
