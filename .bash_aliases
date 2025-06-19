@@ -6,6 +6,7 @@ alias jiggle='while true; do xdotool mousemove 250 0 mousemove restore; factor $
 alias python='python3'
 alias calc='python3 -i ~/.py_init'
 alias vim='nvim'
+alias pipes='~/bin/pipes.sh/pipes.sh'
 
 # image aliases
 alias slideshow='feh -D2 -FZz ' 
