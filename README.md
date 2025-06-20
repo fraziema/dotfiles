@@ -3,7 +3,7 @@
 ### and then put the punchline in the overflow messages
 **deez**
 
-Currently contains the following
+#### Currently contains the following
 
   - neovim config (minimal changes: keybinds etc.)
       - telescope / fzf
@@ -20,3 +20,5 @@ Currently contains the following
   - bash includes
   - i3 config (now parted into logical subfiles)
   --i3status scripts and configs for different systems
+
+#### Configs currently support a laptop and three machines; stow and git seem to work well to keep them sync'd. TODO: new machine post-install setup script / to-do list.
