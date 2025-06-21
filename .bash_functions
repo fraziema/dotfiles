@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+texclean(){
+	mv *.aux *.synctex.gz *.log *.fls *.fdb_latexmk /tmp
+}
+
 snip() {
 	local CHOOSER="fzf --height=~30% --border double --tac"
 	history | $CHOOSER | awk '{$1=""; print $0}' | tee -a ~/.snippets  
