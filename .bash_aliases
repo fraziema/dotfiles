@@ -9,8 +9,8 @@ alias vim='nvim'
 alias pipes='~/bin/pipes.sh/pipes.sh'
 
 # image aliases
-alias slideshow='feh -D2 -FZz ' 
-alias imgview='feh -g 1200x800 -.rZ --draw-filename --draw-tinted'
+alias slideshow='feh -D2 -pFZz ' 
+alias imgview='feh -g 1200x800 -.rZp --draw-filename --draw-tinted'
 
 # wget aliases
 alias filerip='wget -e robots=off -r -nc -nd -np'

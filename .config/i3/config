@@ -31,6 +31,12 @@ gaps inner 5px
 gaps outer 0px
 smart_gaps on
 
+#set floating windows
+for_window [class="^(?i)pavucontrol"] floating enable
+for_window [class="^(?i)signal-desktop"] floating enable
+  for_window [title="Event Tester"] floating enable 
+
+
 include autoexec
 include theme
 include audio

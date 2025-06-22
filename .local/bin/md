@@ -11,8 +11,28 @@ CHOOSER="fzf --height=~30% --border double --tac"
 
 # replace each instance of string with one for the chosen menu in test comp.
 if [[ ! "$(which fzf)" =~ "fzf" ]]; then
-	echo "no program to select options from. Try fzf or rofi or dmenu"
+	echo "no program to select options from. Try fzf or rofi or dmenu. And edit this script."
 	exit 1
+fi
+
+if [[ ! -z $1 ]]; then 
+	if [[ $1 == "-l" ]]; then
+		echo 
+		LINK=$2
+		if [[ -z $LINK ]]; then
+			LINK="usbmount"
+		fi
+	else
+		echo "Improper option. To specify link to drive, use"
+		echo
+		echo "	md -l [name] "
+		echo
+		exit 1
+	fi
+	if [[ -f $HOME/$LINK ]] || [[ -d $HOME/$LINK ]]; then
+		echo "Something is already where you want to link."
+		exit 1
+	fi
 fi
 
 # get from mountable partitions choice to mount / unmount
@@ -37,14 +57,14 @@ echo "selected device $DEVICE"
 # did too much get chosen from fzf?
 if [[ -n $ERR ]] || [[ $MOUNTED =~ "part" ]]; then
 	echo "ERR has value $ERR when it should not. MOUNTED has value $MOUNTED 
-	
+
 	If you have a space in the mount point path, you should change it to underscore (or make it one word/chunk). The method to do that looks like
 
 		> umount <device>			// this error shows up when mounted
 		> sudo ntfslabel <device> MY_LABEL 
 
-	Otherwise, something is wrong in the fzf selector. Exiting..."
-	exit 1
+		Otherwise, something is wrong in the fzf selector. Exiting..."
+		exit 1
 fi
 
 # Idiot Checks
@@ -69,18 +89,28 @@ if [[ -n $MOUNTED ]] && [[ $PWD =~ $MOUNTED ]]; then
 fi
 # Try to do requested mount / unmount
 if [[ -z $MOUNTED ]]; then 
-	
+
 	udisksctl mount --block-device $DEVICE --no-user-interaction
-	echo "Copying mountpoint to clipboard "
 	USB=$(lsblk $DEVICE | awk '{print $7;}' | tail -n 1 )
+	if [[ ! -z $LINK ]]; then
+		echo "Linking to ~/$LINK"
+		echo
+		ln -s $USB $HOME/$LINK
+	fi
+	echo "Copying mountpoint to clipboard "
 	echo $USB | xclip -i -r
 	echo "Finished."
 	exit 0
 
 else
 
+	ADDR=$(find -L $HOME -maxdepth 1 -samefile $MOUNTED)
 	echo "$DEVICE is mounted at $MOUNTED"
 	echo
+	if [[ ! -z $ADDR ]]; then 
+		echo "Removing link at $HOME/$ADDR"
+		rm $ADDR
+	fi
 	udisksctl unmount --block-device $DEVICE --no-user-interaction
 	echo "Finished."
 	exit 0
