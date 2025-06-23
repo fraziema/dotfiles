@@ -2,6 +2,7 @@
 local ls = 	require("luasnip")
 local s = ls.snippet
 
+<<<<<<< HEAD
 local ls = require("luasnip") 
 local s = ls.snippet 
 local sn = ls.snippet_node 
@@ -39,11 +40,23 @@ return {
 			-- 		snippetType="<autosnippet or snippet>" 
 			-- 	},
 			-- 	{ 
+=======
+return {   
+	
+	-- ls.snippet( -- foreshortened to s()
+	-- 	{	-- if only one string here, it is trig
+	-- 		trig = "foo",
+	-- 		dscr=" <Describe human-readable snippet info",
+	-- 		snippetType="<autosnippet or snippet>" 
+	-- 	},
+	-- 	{ 
+>>>>>>> bd4e1725eedac097a0cada265d26c45208126b62
 	-- 		t("<replacement text") -- OR 
 	-- 		fmta([[ formatted text ]])
 	-- 	}
 	-- ), 
 
+<<<<<<< HEAD
 		s('beg',
 		
 			fmta([[
@@ -55,3 +68,8 @@ return {
 		),
 
 	} 
+=======
+	ls.snippet( "bg", { t("\\begin{}") }), 
+	s( "nd", { t("\\end{}") }), 
+} 
+>>>>>>> bd4e1725eedac097a0cada265d26c45208126b62
