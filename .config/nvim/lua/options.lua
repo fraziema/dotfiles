@@ -9,10 +9,10 @@ vim.opt.shiftwidth = 4
 
 vim.opt.mouse = "a"
 vim.opt.showmode = false
-vim.opt.breakindent = true
+vim.opt.breakindent = false
 
 -- Save undo history
-vim.opt.undofile = tru
+vim.opt.undofile = true
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.swapfile = false
 vim.opt.backup = false
