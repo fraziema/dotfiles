@@ -12,8 +12,8 @@ vim.opt.showmode = false
 vim.opt.breakindent = false
 
 -- Save undo history
-vim.opt.undofile = true
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undofile = false
+-- vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.swapfile = false
 vim.opt.backup = false
 
