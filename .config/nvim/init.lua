@@ -26,6 +26,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 require("options")
+--require("lsp")
 require("autocmd")
 
 require("lazy").setup("plugins")
