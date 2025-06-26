@@ -11,6 +11,7 @@ require("gruvbox").setup({
 	transparent_mode = true,
 })
 
+
 require('darcubox').setup({
 	options = {
 		transparent = true,
@@ -49,8 +50,9 @@ require("tokyonight").setup({
 vim.o.background = "dark"
 -- vim.cmd.colorscheme([[tokyonight-storm]])
 -- vim.cmd.colorscheme([[darcubox]])
-vim.cmd.colorscheme([[gruvbox]])
+-- vim.cmd.colorscheme([[gruvbox]])
 -- vim.cmd.colorscheme([[everforest]])
 -- vim.cmd.colorscheme([[catppuccin]])
 -- vim.cmd.colorscheme([[edge]])
 -- vim.cmd.colorscheme([[sonokai]])
+vim.cmd.colorscheme("onedark_dark")

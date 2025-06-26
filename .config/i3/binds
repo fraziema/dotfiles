@@ -3,11 +3,12 @@
 bindsym $mod+F4 kill
 
 bindsym $mod+Delete exec pavucontrol
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec i3-sensible-terminal; split toggle
+bindsym $mod+Home exec i3-sensible-terminal
 bindsym $mod+d exec dmenu_run -fn 'monospace-24'
 bindsym $mod+b exec firefox -p
 bindsym $mod+Escape exec rofi -show window
-bindsym $mod+n open 
+bindsym $mod+n open ## make empty space; window may fill it later
 ## open is undocumented and may go away
 
 # screenshots
@@ -26,8 +27,7 @@ bindsym $mod+g focus mode_toggle
 
 # This is good with hjkl for swapping which window floats and which 
 # ones stay behind it in tiling mode
-bindsym $mod+i floating toggle
-
+bindsym $mod+i floating toggle; resize set 1600 970 ; move absolute position center;
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
@@ -49,7 +49,6 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 bindsym $mod+backslash floating toggle
 
-bindsym $mod+o move absolute position center
 
 
 # bindsym $mod+Shift+space floating toggle

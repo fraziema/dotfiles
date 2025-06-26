@@ -14,16 +14,10 @@ return{
 		opts = { }
 	},
 		
-	-- {
-	-- 	'pwntester/nautilus.nvim', 
-	-- 	lazy = false,
-	-- 	priority = 1000,
-	-- 	--config = function()
-	-- 	--	require("nautilus").load {
-	-- 	--		transparent = true,
-	-- 	--	}
-	-- 	--end
-	-- },
+	{   
+		"olimorris/onedarkpro.nvim",   
+		priority = 1000, 
+	},
 
 	{
 		"Koalhack/darcubox-nvim",

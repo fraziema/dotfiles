@@ -1,0 +1,42 @@
+T() - toggle
+C() - menu choose
+
+KEY		|	NOMOD	|	SHIFT	|	CONTROL	|	ALT
+F4		|	kill	|	
+F5		|	reload	|	restart
+F7		|	mark
+F8		|	goto
+F12		|	T(bar) 
+
+Del		|	audio 
+Ret		|	term (and toggle split)
+Home	|	term 
+Esc		|	C(win)
+Print	|			|			|	screenshots (scrot)
+		|			|			|	window	|	select
+
+,	prev workspace
+-	show scratchpad
+.	next workspace
+;	focus floats
+=	move to scratchpad
+\	toggle float
+b	open browser
+c	reload config
+d	open dmenu
+e	windows tile (toggle h|v)
+f	fullscreen window
+g	toggle focus between float and tiled
+i	toggle float
+m	move {mode}
+n	open empty space
+o	center floating window
+r	resize mode (S-r restart)
+s	stack windows
+t	toggle tile dir for new window
+v	new window to right (vertical split)
+w	tabbed layout
+y	new window below (horizontal split)
+
+LDUR
+hjkl
