@@ -49,10 +49,9 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 bindsym $mod+backslash floating toggle
 
-
-
 # bindsym $mod+Shift+space floating toggle
-#bindsym $mod+a focus parent
+bindsym $mod+a focus parent
+bindsym $mod+Shift+a focus child
 
 bindsym $mod+minus scratchpad show
 bindsym $mod+equal move scratchpad 
