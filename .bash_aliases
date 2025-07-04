@@ -17,3 +17,4 @@ alias filerip='wget -e robots=off -r -nc -nd -np'
 alias mirror='wget -e robots=off -r -nc -np'
 alias imagerip='wget -e robots=off -r -nc -nd -np -A jpeg,jpg,bmp,gif,png'
 alias siterip='wget -e robots=off -r -nc -np'
+alias viafix="sudo chmod 777 /dev/hidraw*"

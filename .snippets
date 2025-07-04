@@ -18,3 +18,5 @@ echo "This should not have been printed"
  cd $(find . -type d | fzf)
  sudo ntfslabel /dev/sdb1 LABEL
  find . -type f -name "*.ppt*" | parallel cp {} ../ppt/
+ tar --exclude=.* -cvzf $USER-$(date -I).tar.gz ~/
+ tar -cvzf test.tar.gz -T <(find fraziema-2022ish/ -type f)
