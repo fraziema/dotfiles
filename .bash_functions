@@ -9,6 +9,11 @@ snip() {
 	history | $CHOOSER | awk '{$1=""; print $0}' | tee -a ~/.snippets  
 }
 
+dosnip() {
+	$(<~/.snippets fzf --height=~30% --border double --tac)
+}
+
+
 # if the path is too long to display,
 # this toggles the dirtrim var in the prompt
 toggle_dirtrim(){

@@ -113,6 +113,7 @@ if [ -f ~/.bash_functions ]; then
 fi
 
 # set editor variable
+export VISUAL=/usr/local/bin/nvim
 export EDITOR=/usr/bin/vim
 
 # # set git status in prompt using git builtins:

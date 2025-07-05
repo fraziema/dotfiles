@@ -8,7 +8,9 @@ bindsym $mod+Home exec i3-sensible-terminal
 bindsym $mod+d exec dmenu_run -fn 'monospace-24'
 bindsym $mod+b exec firefox -p
 bindsym $mod+Escape exec rofi -show window
-bindsym $mod+n open ## make empty space; window may fill it later
+
+## make empty space; window may fill it later
+bindsym $mod+n open 
 ## open is undocumented and may go away
 
 # screenshots
