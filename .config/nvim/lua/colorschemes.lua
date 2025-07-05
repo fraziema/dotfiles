@@ -1,4 +1,3 @@
-
 --  Colorschemes
 require("gruvbox").setup({
 	italic = {
@@ -11,7 +10,6 @@ require("gruvbox").setup({
 	transparent_mode = true,
 })
 
-
 require('darcubox').setup({
 	options = {
 		transparent = true,
@@ -23,7 +21,6 @@ require('darcubox').setup({
 		}
 	}
 })
-
 
 require("catppuccin").setup({
 	no_italic = true,
@@ -44,7 +41,6 @@ require("tokyonight").setup({
 		sidebars = "dark", -- style for sidebars, see below
 		floats = "dark", -- style for floating windows
 	},
-
 })
 
 vim.o.background = "dark"
