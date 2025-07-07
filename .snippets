@@ -14,7 +14,7 @@ if true; then exit 1; fi
 echo "This should not have been printed"
 
 ## ok here are the snippets...
-
+## START
  cd $(find . -type d | fzf)
  sudo ntfslabel /dev/sdb1 LABEL
  find . -type f -name "*.ppt*" | parallel cp {} ../ppt/
