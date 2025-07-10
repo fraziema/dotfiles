@@ -108,7 +108,7 @@ else
 	echo "$DEVICE is mounted at $MOUNTED"
 	echo
 	if [[ ! -z $ADDR ]]; then 
-		echo "Removing link at $HOME/$ADDR"
+		echo "Removing link at $ADDR"
 		rm $ADDR
 	fi
 	udisksctl unmount --block-device $DEVICE --no-user-interaction
