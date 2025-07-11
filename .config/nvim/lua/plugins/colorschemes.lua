@@ -1,5 +1,12 @@
 return{
 	{
+		"NLKNguyen/papercolor-theme",     priority = 1000,
+	},
+	{
+		"ptdewey/darkearth-nvim",     priority = 1000,
+	},
+
+	{
 		"catppuccin/nvim",
 		name = "catppuccin",
 		priority = 1000,
@@ -21,7 +28,6 @@ return{
 
 	{
 		"Koalhack/darcubox-nvim",
-		config = function() vim.cmd("colorscheme darcubox") end
 	},
 
 	{
