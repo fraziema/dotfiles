@@ -7,11 +7,23 @@ bindsym $mod+Return exec st; split toggle
 bindsym $mod+Home exec st
 bindsym $mod+d exec dmenu_run -fn 'monospace-24'
 bindsym $mod+b exec firefox -p
+bindsym $mod+Shift+b exec librewolf
+bindsym $mod+Shift+v exec vivaldi
 bindsym $mod+Escape exec rofi -show window
 
 ## make empty space; window may fill it later
 bindsym $mod+n open 
 ## open is undocumented and may go away
+
+
+set $mode_gaps Toggle gaps: (1) off (2) on
+bindsym $mod+F11 mode "$mode_gaps"
+mode "$mode_gaps" {
+    bindsym 1 mode "default", gaps inner all set 0, gaps outer all set 0
+    bindsym 2 mode "default", gaps inner all set 5, gaps outer all set 0
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
 
 # screenshots
 bindsym --release control+Print exec --no-startup-id scrot -u

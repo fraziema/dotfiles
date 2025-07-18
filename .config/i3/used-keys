@@ -6,6 +6,7 @@ F4		|	kill	|
 F5		|	reload	|	restart
 F7		|	mark
 F8		|	goto
+F11		|	gaps
 F12		|	T(bar) 
 
 Del		|	audio 
