@@ -3,8 +3,8 @@
 bindsym $mod+F4 kill
 
 bindsym $mod+Delete exec pavucontrol
-bindsym $mod+Return exec st; split toggle
-bindsym $mod+Home exec st
+bindsym $mod+Return exec x-terminal-emulator; split toggle
+bindsym $mod+Home exec x-terminal-emulator
 bindsym $mod+d exec dmenu_run -fn 'monospace-24'
 bindsym $mod+b exec firefox -p
 bindsym $mod+Shift+b exec librewolf
