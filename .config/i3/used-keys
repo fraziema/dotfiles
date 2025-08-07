@@ -10,8 +10,8 @@ F11		|	gaps
 F12		|	T(bar) 
 
 Del		|	audio 
-Ret		|	term (and toggle split)
-Home	|	term 
+Ret		|	term 
+Home	| 
 Esc		|	C(win)
 Print	|			|			|	screenshots (scrot)
 		|			|			|	window	|	select
@@ -37,6 +37,7 @@ s	stack windows
 t	toggle tile dir for new window
 v	new window to right (vertical split)
 w	tabbed layout
+x	open term
 y	new window below (horizontal split)
 
 LDUR
