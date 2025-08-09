@@ -13,8 +13,4 @@ pushd ~/.config/i3status
 cat config.default config.$(hostname) > config;
 popd
 
-# alacritty terminal
-pushd ~/.config/alacritty
-cat alacritty.default alacritty.$(hostname) > alacritty.yml;
-popd
 	
