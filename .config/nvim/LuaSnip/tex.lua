@@ -24,8 +24,8 @@ return {
 			-- 	{	-- either t("") or fmt([[multiline string ]])
 					-- 	or fmta([[ ]]) for inserted code
 
-		s({trig=' ;;',snippetType="autosnippet"},fmta("{<>}", d(1,get_visual))), 
-		s({trig=' mm',snippetType="autosnippet"},fmta("$<>$", d(1,get_visual))), 
+		s({trig=';;',snippetType="autosnippet"},fmta("{<>}", d(1,get_visual))), 
+		s({trig='mm',snippetType="autosnippet"},fmta("$<>$", d(1,get_visual))), 
 		s('i',t("\\item ")), 
 		s('g',fmta("\\includegraphics[<>]{<>} ",{i(1),i(2)})), 
 		s('it',t("itemize")), 
