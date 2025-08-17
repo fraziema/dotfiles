@@ -32,9 +32,13 @@ return {
 		s('en',t("enumerate")), 
 		s('eq',t("equation")), 
 		s('c',t("center")), 
+		s('sec',fmta("\\section{<>}", {i(1)})), 
+		s('sub',fmta("\\subsection{<>}", {i(1)})), 
+		s('ssub',fmta("\\subsubsection{<>}", {i(1)})), 
 		s('t',t("tikzpicture")), 
 		s('tb', fmta([[\textbf{<>}]], {d(1, get_visual)})), 
 		s('ti', fmta([[\textit{<>}]], {d(1, get_visual)})), 
+		s('tt', fmta([[\textrm{<>}]], {d(1, get_visual)})), 
 		s('ff',fmta([[\frac{<>}{<>}]], {i(1),i(2)})),
 
 --formatting for multiline environments
