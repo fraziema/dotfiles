@@ -43,3 +43,6 @@ vim.opt.scrolloff = 8
 vim.opt.confirm = true
 vim.opt.colorcolumn = "80"
 
+-- make netrw look good for :Lex etc
+vim.g.netrw_banner = 0
+vim.g.netrw_winsize = 20
