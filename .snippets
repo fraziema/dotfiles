@@ -12,11 +12,14 @@ echo "Seriously, do not run this file"
 if true; then exit 1; fi
 
 echo "This should not have been printed"
+exit 1
 
 ## ok here are the snippets...
 ## START
- cd $(find . -type d | fzf)
- sudo ntfslabel /dev/sdb1 LABEL
- find . -type f -name "*.ppt*" | parallel cp {} ../ppt/
- tar --exclude=.* -cvzf $USER-$(date -I).tar.gz ~/
- tar -cvzf test.tar.gz -T <(find fraziema-2022ish/ -type f)
+cd $(find . -type d | fzf)
+sudo ntfslabel /dev/sdb1 LABEL
+find . -type f -name "*.ppt*" | parallel cp {} ../ppt/
+tar --exclude=.* -cvzf $USER-$(date -I).tar.gz ~/
+tar -cvzf test.tar.gz -T <(find fraziema-2022ish/ -type f)
+for i in *; do mkd=${i:0: -4}; mkdir $mkd; unzip $i -d $mkd; done
+rename -- 's/ /_/' *

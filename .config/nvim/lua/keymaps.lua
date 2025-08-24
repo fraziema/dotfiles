@@ -6,9 +6,15 @@ vim.keymap.set("n", "<leader>sb", function ()
 	vim.cmd.Telescope("buffers")
 	end , { desc = "[S]earch [B]uffers (remember double leader)" })
 
-	-- Navigate buffers
+-- Navigate buffers
 vim.keymap.set("n", "<Right>", ":bnext<CR>", opts)
 vim.keymap.set("n", "<Left>", ":bprevious<CR>", opts)
+-- Navigate quickfix
+vim.keymap.set("n", "<Up>", ":cprev<CR>", opts)
+vim.keymap.set("n", "<Down>", ":cnext<CR>", opts)
+vim.keymap.set("n", "<M-k>", ":cprev<CR>", opts)
+vim.keymap.set("n", "<M-j>", ":cnext<CR>", opts)
+vim.keymap.set("n", "<M-;>", ":cc<CR>", opts)
 
 -- Keybinds to make split navigation easi, { desc = "Move focus to the left window" })
 --  See `:help wincmd` for a list of all window commands

@@ -6,11 +6,12 @@ texclean(){
 
 snip() {
 	local CHOOSER="fzf --height=~30% --border double --tac"
-	history | $CHOOSER | awk '{$1=""; print $0}' | tee -a ~/.snippets  
+	history | $CHOOSER | awk '{$1=""; print $0}' |sed 's/ //' | tee -a ~/.snippets  
 }
 
 dosnip() {
-	$(<~/.snippets fzf --height=~30% --border double --tac)
+	cut=$(<~/.snippets fzf --height=~30% --border double --tac)
+	echo $cut | xclip -i 
 }
 
 
