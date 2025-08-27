@@ -28,6 +28,7 @@ return {
 		s({trig='mm',snippetType="autosnippet"},fmta("$<>$", d(1,get_visual))), 
 		s('i',t("\\item ")), 
 		s('g',fmta("\\includegraphics[<>]{<>} ",{i(1),i(2)})), 
+		s('si',fmta("\\SI{<>}{<>} ",{i(1),i(2)})), 
 		s('it',t("itemize")), 
 		s('en',t("enumerate")), 
 		s('eq',t("equation")), 
