@@ -15,6 +15,6 @@ exec_always --no-startup-id picom
 exec_always --no-startup-id ~/.config/mkconf
 
 exec --no-startup-id i3-msg 'workspace 1; exec i3-sensible-terminal'
-exec --no-startup-id i3-msg 'workspace 2; exec firefox -P Home'
-exec --no-startup-id i3-msg 'workspace 8; exec firefox -P Home_Gmail'
-exec --no-startup-id i3-msg 'workspace 9; exec firefox -P SWVGS; workspace 1'
+#exec --no-startup-id i3-msg 'workspace 2; exec firefox -P Home'
+#exec --no-startup-id i3-msg 'workspace 8; exec firefox -P Home_Gmail'
+#exec --no-startup-id i3-msg 'workspace 9; exec firefox -P SWVGS; workspace 1'

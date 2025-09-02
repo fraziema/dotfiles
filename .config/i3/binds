@@ -16,6 +16,7 @@ bindsym $mod+Escape exec rofi -show window
 bindsym $mod+n open 
 ## open is undocumented and may go away
 
+bindsym $mod+Shift+n exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
 
 set $mode_gaps Toggle gaps: (1) off (2) on
 bindsym $mod+F11 mode "$mode_gaps"
