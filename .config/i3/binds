@@ -11,9 +11,10 @@ bindsym $mod+b exec firefox -p
 bindsym $mod+Shift+b exec librewolf
 bindsym $mod+Shift+v exec vivaldi
 bindsym $mod+Escape exec rofi -show window
+bindsym $mod+$smod+Escape exec arandr
 
 ## make empty space; window may fill it later
-bindsym $mod+n open 
+# bindsym $mod+$smod+Shift+n open 
 ## open is undocumented and may go away
 
 bindsym $mod+Shift+n exec i3-input -F 'rename workspace to "%s"' -P 'New name: '

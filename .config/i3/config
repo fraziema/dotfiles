@@ -35,6 +35,7 @@ smart_gaps on
 #set floating windows
 for_window [class="^(?i)pavucontrol"] floating enable
 for_window [class="^(?i)signal-desktop"] floating enable
+for_window [class="^(?i)arandr"] floating enable
 for_window [title="Event Tester"] floating enable 
 for_window [title="KeePassXC"] floating enable 
 
