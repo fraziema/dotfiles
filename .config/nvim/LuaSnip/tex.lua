@@ -25,13 +25,15 @@ return {
 					-- 	or fmta([[ ]]) for inserted code
 
 		s({trig=';;',snippetType="autosnippet"},fmta("{<>}", d(1,get_visual))), 
-		s({trig='mm',snippetType="autosnippet"},fmta("$<>$", d(1,get_visual))), 
+		s({trig=';m',snippetType="autosnippet"},fmta("$<>$", d(1,get_visual))), 
+		s({trig=';,',snippetType="autosnippet"},fmta("$$<>$$", d(1,get_visual))), 
 		s('i',t("\\item ")), 
-		s('g',fmta("\\includegraphics[<>]{<>} ",{i(1),i(2)})), 
+		s('g',fmta("\\includegraphics[width=<>\\textwidth]{<>} ",{i(1),i(2)})), 
 		s('si',fmta("\\SI{<>}{<>} ",{i(1),i(2)})), 
 		s('it',t("itemize")), 
 		s('en',t("enumerate")), 
 		s('eq',t("equation")), 
+		s('eqna',t("eqnarray")), 
 		s('c',t("center")), 
 		s('sec',fmta("\\section{<>}", {i(1)})), 
 		s('sub',fmta("\\subsection{<>}", {i(1)})), 
@@ -41,6 +43,9 @@ return {
 		s('ti', fmta([[\textit{<>}]], {d(1, get_visual)})), 
 		s('tt', fmta([[\textrm{<>}]], {d(1, get_visual)})), 
 		s('ff',fmta([[\frac{<>}{<>}]], {i(1),i(2)})),
+		s('abs',fmta("|<>|",i(1))),
+		s('fn',fmta([[\footnote{<>}]], {i(1)})),
+		s('box',fmta([[\boxed{<>}]], {i(1)})),
 
 --formatting for multiline environments
 s('beg',
