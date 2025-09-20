@@ -64,3 +64,5 @@ vim.keymap.set("n", "<leader>P", "\"+p", { desc = "paste from system clipboard" 
 vim.keymap.set("n", "<leader>d", "\"_d", { desc = "throw away deleted text (not in register)" })
 vim.keymap.set("v", "<leader>d", "\"_d", { desc = "throw away deleted text (not in register)" })
 
+-- source luasnips
+vim.keymap.set("n", "<leader>st", '<cmd>lua require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/LuaSnip/"})<CR>')

@@ -24,14 +24,24 @@ return {
 			-- 	{	-- either t("") or fmt([[multiline string ]])
 					-- 	or fmta([[ ]]) for inserted code
 
+		--formatting for multiline environments
+		s('beg',
+		fmta([[\begin{<>}     
+		<>     
+		\end{<>}]],
+		{ i(1), i(0), rep(1) })
+		),
+
+		-- autosnippets
 		s({trig=';;',snippetType="autosnippet"},fmta("{<>}", d(1,get_visual))), 
 		s({trig=';m',snippetType="autosnippet"},fmta("$<>$", d(1,get_visual))), 
 		s({trig=';,',snippetType="autosnippet"},fmta("$$<>$$", d(1,get_visual))), 
-		s('i',t("\\item ")), 
+
+		-- environments
 		s('g',fmta("\\includegraphics[width=<>\\textwidth]{<>} ",{i(1),i(2)})), 
-		s('si',fmta("\\SI{<>}{<>} ",{i(1),i(2)})), 
 		s('it',t("itemize")), 
 		s('en',t("enumerate")), 
+		s('i',t("\\item ")), 
 		s('eq',t("equation")), 
 		s('eqna',t("eqnarray")), 
 		s('c',t("center")), 
@@ -42,18 +52,30 @@ return {
 		s('tb', fmta([[\textbf{<>}]], {d(1, get_visual)})), 
 		s('ti', fmta([[\textit{<>}]], {d(1, get_visual)})), 
 		s('tt', fmta([[\textrm{<>}]], {d(1, get_visual)})), 
-		s('ff',fmta([[\frac{<>}{<>}]], {i(1),i(2)})),
-		s('abs',fmta("|<>|",i(1))),
-		s('fn',fmta([[\footnote{<>}]], {i(1)})),
+
+		-- commands (math)
 		s('box',fmta([[\boxed{<>}]], {i(1)})),
+		s('fn',fmta([[\footnote{<>}]], {i(1)})),
+		s('abs',fmta("|<>|",i(1))),
+		s('ff',fmta([[\frac{<>}{<>}]], {i(1),i(2)})),
+		s('si',fmta("\\SI{<>}{<>} ",{i(1),i(2)})), 
+		s('ra',t("\\rightarrow ")), 
+		s('app',t("\\approx ")), 
 
---formatting for multiline environments
-s('beg',
-fmta([[\begin{<>}     
-<>     
-\end{<>}]],
-{ i(1), i(0), rep(1) })
-),
+		s('ans',t("\\answer ")), 
+		
+		-- s('tf',t([[
+		-- \begin{choices}
+		-- 	\choice True
+		-- 	\choice False
+		-- 	\end{choices}
+		-- 	]])),
 
-} 
-	
+		-- s('otf',t([[
+		--  \begin{oneparchoices}
+		--   \choice True
+		--   \choice False
+		--  \end{oneparchoices}
+		--  ]])),
+
+	}		
