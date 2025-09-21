@@ -24,18 +24,19 @@ return {
 			-- 	{	-- either t("") or fmt([[multiline string ]])
 					-- 	or fmta([[ ]]) for inserted code
 
-		--formatting for multiline environments
-		s('beg',
-		fmta([[\begin{<>}     
-		<>     
-		\end{<>}]],
-		{ i(1), i(0), rep(1) })
-		),
+--formatting for multiline environments
+s('beg',
+fmta([[\begin{<>}     
+	<>     
+\end{<>}]],
+{ i(1), i(0), rep(1) })
+),
 
 		-- autosnippets
 		s({trig=';;',snippetType="autosnippet"},fmta("{<>}", d(1,get_visual))), 
 		s({trig=';m',snippetType="autosnippet"},fmta("$<>$", d(1,get_visual))), 
 		s({trig=';,',snippetType="autosnippet"},fmta("$$<>$$", d(1,get_visual))), 
+		s({trig='===',snippetType="autosnippet"},t("&=&")), 
 
 		-- environments
 		s('g',fmta("\\includegraphics[width=<>\\textwidth]{<>} ",{i(1),i(2)})), 
