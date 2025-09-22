@@ -59,7 +59,8 @@ fmta([[\begin{<>}
 		s('fn',fmta([[\footnote{<>}]], {i(1)})),
 		s('abs',fmta("|<>|",i(1))),
 		s('ff',fmta([[\frac{<>}{<>}]], {i(1),i(2)})),
-		s('si',fmta("\\SI{<>}{<>} ",{i(1),i(2)})), 
+		s('si',fmta("\\qty{<>}{<>} ",{i(1),i(2)})), 
+		s('q',fmta("\\qty{<>}{<>} ",{i(1),i(2)})), 
 		s('ra',t("\\rightarrow ")), 
 		s('app',t("\\approx ")), 
 
