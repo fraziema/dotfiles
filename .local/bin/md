@@ -22,16 +22,23 @@ if [[ ! -z $1 ]]; then
 		if [[ -z $LINK ]]; then
 			LINK="usbmount"
 		fi
+	elif [[ $1 == "-m" ]]; then
+		LIST=1
 	else
 		echo "Improper option. To specify link to drive, use"
 		echo
 		echo "	md -l [name] "
 		echo
+		echo " To list mounted drives, use "
+		echo
+		echo "  md -m "
 		exit 1
 	fi
 	if [[ -f $HOME/$LINK ]] || [[ -d $HOME/$LINK ]]; then
-		echo "Something is already where you want to link."
-		exit 1
+		if [[ $LIST -ne 1 ]]; then
+			echo "Something is already where you want to link."
+			exit 1
+		fi
 	fi
 fi
 
@@ -42,6 +49,10 @@ SEL=($(lsblk -o NAME,MOUNTPOINTS,TYPE -l -s -n 2>/dev/null |
 	sed '/sda/d' | #avoid main disk /
 	$CHOOSER
 ))
+
+if [[ $LIST == 1 ]]; then
+	exit 2;
+fi
 
 DEVICE="/dev/${SEL[0]}"
 
