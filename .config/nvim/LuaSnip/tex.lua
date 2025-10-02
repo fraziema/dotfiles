@@ -32,6 +32,14 @@ fmta([[\begin{<>}
 { i(1), i(0), rep(1) })
 ),
 
+s('over',
+fmta([[\begin{overlayarea}{<>}{<>}     
+	<>     
+\end{overlayarea}]],
+{ i(1), i(2), i(0) })
+),
+
+
 		-- autosnippets
 		s({trig=';;',snippetType="autosnippet"},fmta("{<>}", d(1,get_visual))), 
 		s({trig=';m',snippetType="autosnippet"},fmta("$<>$", d(1,get_visual))), 

@@ -1,8 +1,8 @@
 -- Clear highlights on search when pressing <Esc> in normal mode
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlighting" })
  
--- search buffers in Telescope (this is also provided by <leader><leader>
-vim.keymap.set("n", "<leader>sb", function ()
+-- search buffers in Telescope 
+vim.keymap.set("n", "<leader>b", function ()
 	vim.cmd.Telescope("buffers")
 	end , { desc = "[S]earch [B]uffers (remember double leader)" })
 
