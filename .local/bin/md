@@ -16,31 +16,11 @@ if [[ ! "$(which fzf)" =~ "fzf" ]]; then
 fi
 
 if [[ ! -z $1 ]]; then 
-	if [[ $1 == "-l" ]]; then
-		echo 
-		LINK=$2
-		if [[ -z $LINK ]]; then
-			LINK="usbmount"
-		fi
-	elif [[ $1 == "-m" ]]; then
-		LIST=1
-	else
-		echo "Improper option. To specify link to drive, use"
-		echo
-		echo "	md -l [name] "
-		echo
-		echo " To list mounted drives, use "
-		echo
-		echo "  md -m "
-		exit 1
-	fi
-	if [[ -f $HOME/$LINK ]] || [[ -d $HOME/$LINK ]]; then
-		if [[ $LIST -ne 1 ]]; then
-			echo "Something is already where you want to link."
-			exit 1
-		fi
-	fi
+	LINK=$1
+else
+	LINK="usbmount"
 fi
+
 
 # get from mountable partitions choice to mount / unmount
 SEL=($(lsblk -o NAME,MOUNTPOINTS,TYPE -l -s -n 2>/dev/null |
@@ -49,10 +29,6 @@ SEL=($(lsblk -o NAME,MOUNTPOINTS,TYPE -l -s -n 2>/dev/null |
 	sed '/sda/d' | #avoid main disk /
 	$CHOOSER
 ))
-
-if [[ $LIST == 1 ]]; then
-	exit 2;
-fi
 
 DEVICE="/dev/${SEL[0]}"
 
@@ -104,9 +80,13 @@ if [[ -z $MOUNTED ]]; then
 	udisksctl mount --block-device $DEVICE --no-user-interaction
 	USB=$(lsblk $DEVICE | awk '{print $7;}' | tail -n 1 )
 	if [[ ! -z $LINK ]]; then
-		echo "Linking to ~/$LINK"
-		echo
-		ln -s $USB $HOME/$LINK
+		if [[ -f $HOME/$LINK ]] || [[ -d $HOME/$LINK ]]; then
+			echo "~/$LINK already used; not using link to dir";
+		else
+			echo "Linking to ~/$LINK"
+			echo
+			ln -s $USB $HOME/$LINK
+		fi
 	fi
 	echo "Copying mountpoint to clipboard "
 	echo $USB | xclip -i -r
