@@ -23,6 +23,8 @@ fi
 
 
 # get from mountable partitions choice to mount / unmount
+# for chromebooks / computers with eMMC, you should change 
+# 'sda' in sed to 'mmcb' or equivalent
 SEL=($(lsblk -o NAME,MOUNTPOINTS,TYPE -l -s -n 2>/dev/null |
 	grep -i part | #only partitions
 	sed 's/part//g' | 

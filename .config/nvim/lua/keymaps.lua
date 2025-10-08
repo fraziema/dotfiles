@@ -1,8 +1,8 @@
 -- Clear highlights on search when pressing <Esc> in normal mode
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlighting" })
  
--- search buffers in Telescope (this is also provided by <leader><leader>
-vim.keymap.set("n", "<leader>sb", function ()
+-- search buffers in Telescope 
+vim.keymap.set("n", "<leader>b", function ()
 	vim.cmd.Telescope("buffers")
 	end , { desc = "[S]earch [B]uffers (remember double leader)" })
 
@@ -64,3 +64,5 @@ vim.keymap.set("n", "<leader>P", "\"+p", { desc = "paste from system clipboard" 
 vim.keymap.set("n", "<leader>d", "\"_d", { desc = "throw away deleted text (not in register)" })
 vim.keymap.set("v", "<leader>d", "\"_d", { desc = "throw away deleted text (not in register)" })
 
+-- source luasnips
+vim.keymap.set("n", "<leader>st", '<cmd>lua require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/LuaSnip/"})<CR><cmd>echo "loaded snips"<CR>')

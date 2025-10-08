@@ -1,5 +1,6 @@
 # misc
 alias :q='exit'
+alias cp='cp -v'
 alias ytmp3='yt-dlp -f 'ba' -x --audio-format mp3 '
 alias filedate='date +%Y%m%d_%H%M%S'
 alias jiggle='while true; do xdotool mousemove 250 0 mousemove restore; factor $SRANDOM;sleep 500; done'
