@@ -23,6 +23,8 @@ return {
 			-- 	},
 			-- 	{	-- either t("") or fmt([[multiline string ]])
 					-- 	or fmta([[ ]]) for inserted code
+					-- 	include i(num, get_visual) for putting in selected text
+					-- 	include i(num, "label" to label input slot
 
 --formatting for multiline environments
 s('beg',
@@ -32,13 +34,34 @@ fmta([[\begin{<>}
 { i(1), i(0), rep(1) })
 ),
 
+-- beamer frames
+
+
+s('frame',
+fmta([[\begin{frame}{<>}     
+	<>     
+\end{frame}]],
+{ i(1, "title"),  i(0) })
+),
+
+s('only',fmta([[\only<<<>>>
+{
+  <>
+}
+]], {i(2, "slide num"),d(1,get_visual)})), 
+
+s('unc',fmta([[\uncover<<<>>>
+{
+  <>
+}
+]], {i(2, "slide num"),d(1,get_visual)})), 
+
 s('over',
 fmta([[\begin{overlayarea}{<>}{<>}     
 	<>     
 \end{overlayarea}]],
-{ i(1), i(2), i(0) })
+{ i(2, "width"), i(3, "height"), d(1, get_visual) })
 ),
-
 
 		-- autosnippets
 		s({trig=';;',snippetType="autosnippet"},fmta("{<>}", d(1,get_visual))), 
@@ -47,6 +70,7 @@ fmta([[\begin{overlayarea}{<>}{<>}
 		s({trig='===',snippetType="autosnippet"},t("&=&")), 
 
 		-- environments
+
 		s('g',fmta("\\includegraphics[width=<>\\textwidth]{<>} ",{i(1),i(2)})), 
 		s('it',t("itemize")), 
 		s('en',t("enumerate")), 
@@ -57,7 +81,7 @@ fmta([[\begin{overlayarea}{<>}{<>}
 		s('sec',fmta("\\section{<>}", {i(1)})), 
 		s('sub',fmta("\\subsection{<>}", {i(1)})), 
 		s('ssub',fmta("\\subsubsection{<>}", {i(1)})), 
-		s('t',t("tikzpicture")), 
+		s('tz',t("tikzpicture")), 
 		s('tb', fmta([[\textbf{<>}]], {d(1, get_visual)})), 
 		s('ti', fmta([[\textit{<>}]], {d(1, get_visual)})), 
 		s('tt', fmta([[\textrm{<>}]], {d(1, get_visual)})), 

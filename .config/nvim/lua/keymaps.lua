@@ -65,4 +65,4 @@ vim.keymap.set("n", "<leader>d", "\"_d", { desc = "throw away deleted text (not 
 vim.keymap.set("v", "<leader>d", "\"_d", { desc = "throw away deleted text (not in register)" })
 
 -- source luasnips
-vim.keymap.set("n", "<leader>st", '<cmd>lua require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/LuaSnip/"})<CR>')
+vim.keymap.set("n", "<leader>st", '<cmd>lua require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/LuaSnip/"})<CR><cmd>echo "loaded snips"<CR>')
