@@ -36,12 +36,13 @@ bar {
 		i3bar_command i3bar 
 		position bottom
 		workspace_min_width 27
-		padding 0 10px
+		padding 0px 10px
+		separator_symbol :: 
  		colors {
  			background $bg1
 			#statusline #00aaff #tmux sline
 			statusline $tc1
-			separator  $fg
+			separator  $bg
 
 # #			<colorclass>		<edge>	<bg>	<text>
 			focused_workspace	$tc2	$bg1	$fg1
