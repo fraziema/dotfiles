@@ -1,43 +1,37 @@
 Xcursor.theme: default
 Xcursor.size: 48
 
-! special
-*.foreground:   #ddc2d1
-*.background:   #180b13
-*.cursorColor:  #ddc2d1
 
-! black
-*.color0:       #25141f
-*.color8:       #a7a1cb
-
-! red
-*.color1:       #311c29
-*.color9:       #9fa56f
-
-! green
-*.color2:       #472a3c
-*.color10:      #76a5b0
-
-! yellow
-*.color3:       #653e56
-*.color11:      #a7ae69
-
-! blue
-*.color4:       #8c5877
-*.color12:      #8aafb8
-
-! magenta
-*.color5:       #b8779e
-*.color13:      #7abecc
-
-! cyan
-*.color6:       #d0a9bf
-*.color14:      #9a94bd
-
-! white
-*.color7:       #ecdfe6
-*.color15:      #de8c63
-
+! gruvbox colors ==========================
+! hard contrast: *background: #1d2021
+*background: #282828
+! soft contrast: *background: #32302f
+*foreground: #ebdbb2
+! Black + DarkGrey
+*color0:  #282828
+*color8:  #928374
+! DarkRed + Red
+*color1:  #cc241d
+*color9:  #fb4934
+! DarkGreen + Green
+*color2:  #98971a
+*color10: #b8bb26
+! DarkYellow + Yellow
+*color3:  #d79921
+*color11: #fabd2f
+! DarkBlue + Blue
+*color4:  #458588
+*color12: #83a598
+! DarkMagenta + Magenta
+*color5:  #b16286
+*color13: #d3869b
+! DarkCyan + Cyan
+*color6:  #689d6a
+*color14: #8ec07c
+! LightGrey + White
+*color7:  #a89984
+*color15: #ebdbb2
+! gruvbox colors ==========================
 
 *.transparency: true
 

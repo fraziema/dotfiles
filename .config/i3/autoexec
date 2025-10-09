@@ -11,7 +11,7 @@ exec --no-startup-id parcellite
 exec --no-startup-id ~/.fehbg
 exec --no-startup-id wal -R
 
-# exec_always --no-startup-id picom
+#exec_always --no-startup-id picom
 exec_always --no-startup-id ~/.config/mkconf
 
 exec --no-startup-id i3-msg 'workspace 1; exec i3-sensible-terminal'
