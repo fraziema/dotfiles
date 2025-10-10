@@ -57,7 +57,7 @@ s('unc',fmta([[\uncover<<<>>>
 ]], {i(2, "slide num"),d(1,get_visual)})), 
 
 s('over',
-fmta([[\begin{overlayarea}{<>}{<>}     
+fmta([[\begin{overlayarea}{<>\textwidth}{<>\textheight}     
 	<>     
 \end{overlayarea}]],
 { i(2, "width"), i(3, "height"), d(1, get_visual) })
