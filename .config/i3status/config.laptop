@@ -1,4 +1,3 @@
-
 order += "battery all"
 order += "time"
 
@@ -6,8 +5,8 @@ battery all {
 	last_full_capacity = true
 	low_threshold = 20
 	threshold_type = "percentage"
-	format = "Battery: %status %percentage %remaining "
+	format = "%status %percentage %remaining"
 }
 time {
-	format = " %H:%M %d %b "
+	format = " %H:%M | %d %b "
 }
