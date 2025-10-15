@@ -63,6 +63,12 @@ fmta([[\begin{overlayarea}{<>\textwidth}{<>\textheight}
 { i(2, "width"), i(3, "height"), d(1, get_visual) })
 ),
 
+s('bl',
+fmta([[\begin{block}{<>}     
+	<>     
+\end{block}]],
+{ i(1, "title"),  i(0) })
+),
 		-- autosnippets
 		s({trig=';;',snippetType="autosnippet"},fmta("{<>}", d(1,get_visual))), 
 		s({trig=';m',snippetType="autosnippet"},fmta("$<>$", d(1,get_visual))), 
