@@ -1,9 +1,15 @@
 #!/usr/bin/env bash
 
 batlvl(){
-	if [[ $HOSTNAME == "laptop" ]]; then
+	if [[ $HOSTNAME == "laptop"  ]]; then
 		while true; do 
 			upower -i /org/freedesktop/UPower/devices/battery_BAT1 >/tmp/batt 
+			grep -i percent /tmp/batt | awk '{print $2}'
+			sleep 5
+		done
+	elif [[ $HOSTNAME == "chbook"  ]]; then
+		while true; do 
+			upower -i /org/freedesktop/UPower/devices/battery_BAT0 >/tmp/batt 
 			grep -i percent /tmp/batt | awk '{print $2}'
 			sleep 5
 		done
