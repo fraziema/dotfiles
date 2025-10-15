@@ -1,15 +1,28 @@
 #!/usr/bin/env bash
 
+batlvl(){
+	if [[ $HOSTNAME == "laptop" ]]; then
+		while true; do 
+			upower -i /org/freedesktop/UPower/devices/battery_BAT1 >/tmp/batt 
+			grep -i percent /tmp/batt | awk '{print $2}'
+			sleep 5
+		done
+	fi
+}
+
+
 texclean(){
 	mv *.aux *.synctex.gz *.log *.fls *.fdb_latexmk /tmp
 }
 
 snip() {
+	echo "snip: save to snippets file;	 dosnip: copy from snippets file to clipboard"
 	local CHOOSER="fzf --height=~30% --border double --tac"
 	history | $CHOOSER | awk '{$1=""; print $0}' |sed 's/ //' | tee -a ~/.snippets  
 }
 
 dosnip() {
+	echo "snip: save to snippets file;	 dosnip: copy from snippets file to clipboard"
 	cut=$(<~/.snippets fzf --height=~30% --border double --tac)
 	echo $cut | xclip -i 
 }
@@ -38,15 +51,15 @@ redot() {
 
 # select an image file, generate a colorscheme, and 
 # set wallpaper and colorscheme for terminals
-wallp(){
-	pushd $1 || return 1
-	SEL=$(find . | fzf )
-	if [[ -z $SEL ]]; then return 1; fi
-	echo -n "Theme name => "
-	read NAME
-	wal -i $SEL -p $NAME
-	popd
-}
+# wallp(){
+# 	pushd $1 || return 1
+# 	SEL=$(find . | fzf )
+# 	if [[ -z $SEL ]]; then return 1; fi
+# 	echo -n "Theme name => "
+# 	read NAME
+# 	wal -i $SEL -p $NAME
+# 	popd
+# }
 
 #clear the terminal and display updating current time
 clock() {
@@ -91,7 +104,12 @@ hashmove() {
 }
 
 # stopwatch between keypresses
-timer() { echo "Press any key to stop timer >"; time read -n 1; }
+timer() { 
+	echo "Press any key to start timer >"
+	read -n 1
+	echo "Press any key to stop timer >"
+	time read -n 1
+}
 
 # change directory and see what is there 
 cdl() { 
@@ -142,4 +160,4 @@ dkill() {
 }
 
 #old way to make an 8 character temp password
-mkpw() { head /dev/urandom | uuencode -m - | sed -n 2p | cut -c1-${1:-8}; }
+# mkpw() { head /dev/urandom | uuencode -m - | sed -n 2p | cut -c1-${1:-8}; }

@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+if [[ $HOSTNAME == "laptop" ]]; then
+	while true; do 
+		upower -i /org/freedesktop/UPower/devices/battery_BAT1 >/tmp/batt 
+		 ac=$(grep -i state /tmp/batt | awk '{print $2}')
+		 pr=$(grep -i percent /tmp/batt | awk '{print $2}')
+		 dt=$(grep -i time /tmp/batt | awk '{print $4,  $5}')
+		echo "$ac $pr $dt"
+		sleep 60
+	done
+fi
