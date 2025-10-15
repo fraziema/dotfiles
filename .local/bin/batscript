@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
-if [[ $HOSTNAME == "laptop" ]]; then
+if [[ $HOSTNAME == "laptop" ]] || [[ $HOSTNAME == "chbook" ]]; then
 	while true; do 
-		upower -i /org/freedesktop/UPower/devices/battery_BAT1 >/tmp/batt 
+		if [[ $HOSTNAME == "chbook" ]]; then
+			upower -i /org/freedesktop/UPower/devices/battery_BAT0 >/tmp/batt 
+		else
+			upower -i /org/freedesktop/UPower/devices/battery_BAT1 >/tmp/batt 
+		fi
 		 ac=$(grep -i state /tmp/batt | awk '{print $2}')
 		 pr=$(grep -i percent /tmp/batt | awk '{print $2}')
 		 dt=$(grep -i time /tmp/batt | awk '{print $4,  $5}')
