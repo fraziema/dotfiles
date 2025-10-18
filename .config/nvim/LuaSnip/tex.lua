@@ -27,16 +27,73 @@ return {
 					-- 	include i(num, "label" to label input slot
 
 --formatting for multiline environments
+--generic
 s('beg',
 fmta([[\begin{<>}     
 	<>     
 \end{<>}]],
 { i(1), i(0), rep(1) })
 ),
+ 
+-- center
+s('c',
+fmta([[\begin{center}     
+	<>     
+\end{center}]],
+{ i(0) })
+),
+
+-- flushright
+s('rr',
+fmta([[\begin{flushright}     
+	<>     
+\end{flushright}]],
+{ i(0) })
+),
+
+
+-- lists
+s('enum',
+fmta([[\begin{enumerate}     
+	<>     
+\end{enumerate}]],
+{ i(0) })
+),
+
+s('item',
+fmta([[\begin{itemize}     
+	<>     
+\end{itemize}]],
+{ i(0) })
+),
+
+
+--tikzpicture
+s('tikz',
+fmta([[\begin{tikzpicture}     
+	<>     
+\end{tikzpicture}]],
+{ i(1)})
+),
+
+-- list of equations
+s('eq',
+fmta([[\begin{gather*}     
+	<>     
+\end{gather*}]],
+{ i(1)})
+),
+
+-- array of equations
+s('ea',
+fmta([[\begin{align*}     
+	<>     
+\end{align*}]],
+{ i(1)})
+),
+
 
 -- beamer frames
-
-
 s('frame',
 fmta([[\begin{frame}{<>}     
 	<>     
@@ -78,18 +135,12 @@ fmta([[\begin{block}{<>}
 		-- environments
 
 		s('g',fmta("\\includegraphics[width=<>\\textwidth]{<>} ",{i(1),i(2)})), 
-		s('it',t("itemize")), 
-		s('en',t("enumerate")), 
 		s('i',t("\\item ")), 
-		s('eq',t("equation")), 
-		s('eqna',t("eqnarray")), 
-		s('c',t("center")), 
 		s('sec',fmta("\\section{<>}", {i(1)})), 
 		s('sub',fmta("\\subsection{<>}", {i(1)})), 
 		s('ssub',fmta("\\subsubsection{<>}", {i(1)})), 
-		s('tz',t("tikzpicture")), 
-		s('tb', fmta([[\textbf{<>}]], {d(1, get_visual)})), 
-		s('ti', fmta([[\textit{<>}]], {d(1, get_visual)})), 
+		s('tb', fmta([[{\bf <>}]], {d(1, get_visual)})), 
+		s('ti', fmta([[{\it <>}]], {d(1, get_visual)})), 
 		s('tt', fmta([[\textrm{<>}]], {d(1, get_visual)})), 
 
 		-- commands (math)
@@ -97,25 +148,11 @@ fmta([[\begin{block}{<>}
 		s('fn',fmta([[\footnote{<>}]], {i(1)})),
 		s('abs',fmta("|<>|",i(1))),
 		s('ff',fmta([[\frac{<>}{<>}]], {i(1),i(2)})),
-		s('si',fmta("\\qty{<>}{<>} ",{i(1),i(2)})), 
 		s('q',fmta("\\qty{<>}{<>} ",{i(1),i(2)})), 
 		s('ra',t("\\rightarrow ")), 
+		s('lra',t("\\Longrightarrow ")), 
 		s('app',t("\\approx ")), 
 
 		s('ans',t("\\answer ")), 
 		
-		-- s('tf',t([[
-		-- \begin{choices}
-		-- 	\choice True
-		-- 	\choice False
-		-- 	\end{choices}
-		-- 	]])),
-
-		-- s('otf',t([[
-		--  \begin{oneparchoices}
-		--   \choice True
-		--   \choice False
-		--  \end{oneparchoices}
-		--  ]])),
-
-	}		
+}		
