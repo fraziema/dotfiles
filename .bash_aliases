@@ -8,7 +8,7 @@ alias python='python3'
 alias calc='python3 -i ~/.py_init'
 alias vim='nvim'
 alias v='nvim .'
-alias pipes='~/bin/pipes.sh/pipes.sh'
+alias pipes='~/.local/bin/pipes.sh'
 
 # image aliases
 alias slideshow='feh -D2 -pFZz ' 
