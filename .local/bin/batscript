@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 if [[ $HOSTNAME == "laptop" ]] || [[ $HOSTNAME == "chbook" ]]; then
 	while true; do 
-		if [[ $HOSTNAME == "chbook" ]]; then
+		if [[ $HOSTNAME == "biglaptop" ]] || [[ $HOSTNAME == "chbook" ]]; then
 			upower -i /org/freedesktop/UPower/devices/battery_BAT0 >/tmp/batt 
 		else
 			upower -i /org/freedesktop/UPower/devices/battery_BAT1 >/tmp/batt 
