@@ -139,8 +139,8 @@ fmta([[\begin{block}{<>}
 		s('sec',fmta("\\section{<>}", {i(1)})), 
 		s('sub',fmta("\\subsection{<>}", {i(1)})), 
 		s('ssub',fmta("\\subsubsection{<>}", {i(1)})), 
-		s('tb', fmta([[{\bf <>}]], {d(1, get_visual)})), 
-		s('ti', fmta([[{\it <>}]], {d(1, get_visual)})), 
+		s('bf', fmta([[{\bf <>}]], {d(1, get_visual)})), 
+		s('it', fmta([[{\it <>}]], {d(1, get_visual)})), 
 		s('tt', fmta([[\textrm{<>}]], {d(1, get_visual)})), 
 
 		-- commands (math)
