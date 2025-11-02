@@ -7,7 +7,7 @@ bindsym $mod+Delete exec pavucontrol
 bindsym $mod+x exec $iterm ; split toggle
 bindsym $mod+Return exec $iterm
 bindsym $mod+d exec dmenu_run -fn 'monospace-24'
-bindsym $mod+b exec firefox -p
+bindsym $mod+b exec waterfox -p
 bindsym $mod+Shift+b exec librewolf
 bindsym $mod+Shift+v exec vivaldi
 bindsym $mod+Escape exec rofi -show window
