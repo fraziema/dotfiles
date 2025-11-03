@@ -155,4 +155,8 @@ fmta([[\begin{block}{<>}
 
 		s('ans',t("\\answer ")), 
 		
+		s('mps',t("\\meter\\per\\second ")), 
+		s('mpss',t("\\meter\\per\\second\\squared ")), 
+		s('rps',t("\\radian\\per\\second ")), 
+		s('rpss',t("\\radian\\per\\second\\squared ")), 
 }		
