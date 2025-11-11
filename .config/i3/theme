@@ -34,7 +34,8 @@ bar {
 	id b1
 	status_command i3status
 		i3bar_command i3bar 
-		position bottom
+		position top
+		#position bottom
 		workspace_min_width 7
 		padding 0px 10px
 		separator_symbol :: 
