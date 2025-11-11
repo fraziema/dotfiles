@@ -1,3 +1,5 @@
+order += "path_exists usbmount"
+
 general {
 	colors = true
 	interval = 30
@@ -7,3 +9,6 @@ general {
 	separator = ""
 }
 
+path_exists usbmount {
+	path = "~/usbmount"
+}
